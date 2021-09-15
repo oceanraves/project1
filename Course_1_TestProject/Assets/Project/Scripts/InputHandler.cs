@@ -34,5 +34,10 @@ public class InputHandler : MonoBehaviour
 
             _audioHandler.PauseAudio();
         }
+
+        if (Input.GetKeyDown(KeyCode.Space))
+        {
+            _audioHandler.Play("Lazer_1");
+        }
     }
 }
