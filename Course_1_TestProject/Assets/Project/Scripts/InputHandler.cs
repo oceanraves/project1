@@ -18,6 +18,7 @@ public class InputHandler : MonoBehaviour
         {
             if(_isPaused)
             {
+                //RESUME TIME
                 Time.timeScale = 1f;
                 _isPaused = false;
 
@@ -27,10 +28,11 @@ public class InputHandler : MonoBehaviour
                 return;
             }
             else
-            Time.timeScale = 0f;
+                //STOP TIME
+                Time.timeScale = 0f;
             _isPaused = true;
-            _audioHandler.PauseAudio();
 
+            _audioHandler.PauseAudio();
         }
     }
 }

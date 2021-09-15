@@ -10,6 +10,10 @@ public class AudioHandler : MonoBehaviour
     private bool _isMuted;
     void Start()
     {        
+        if (_isMuted)
+        {
+            AudioListener.volume = 0f;
+        }
     }
 
     void Update()
@@ -30,5 +34,16 @@ public class AudioHandler : MonoBehaviour
         } else
             AudioListener.volume = 0f;
             _isMuted = true;
+    }
+    
+
+
+    public void PauseAdudio()
+    {
+        if (_isPaused)
+        {
+            AudioListener.pause = true;
+        } else
+            AudioListener.pause = false;
     }
 }
