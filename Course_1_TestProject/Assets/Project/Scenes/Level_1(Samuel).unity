@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 705507994}
-  m_IndirectSpecularColor: {r: 0.0017768068, g: 0.0016313518, b: 0.0015172751, a: 1}
+  m_IndirectSpecularColor: {r: 0.0044042426, g: 0.004285816, b: 0.0043833707, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -410,9 +410,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 83ce4ee442d098d48a2e2e774bff2440, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  firePoint: {fileID: 0}
-  firePoint2: {fileID: 0}
-  bulletPrefab: {fileID: 919132149155446097, guid: 46c193f78c1e9694083a5e9325c3f16e, type: 3}
 --- !u!114 &387862550
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -682,7 +679,7 @@ Light:
   m_Type: 1
   m_Shape: 0
   m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_Intensity: 1.3
+  m_Intensity: 10.3
   m_Range: 10
   m_SpotAngle: 30
   m_InnerSpotAngle: 21.80208
@@ -1353,7 +1350,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: e14fb9c0c59ebe241a276ce09f5c9c6e, type: 3}
   m_PlayOnAwake: 1
-  m_Volume: 1
+  m_Volume: 0.5
   m_Pitch: 1
   Loop: 1
   Mute: 0
@@ -1454,13 +1451,13 @@ MonoBehaviour:
   - name: Lazer_0
     clip: {fileID: 8300000, guid: 50e583c9a076d4646ac7b9ac3b2db200, type: 3}
     volume: 1
-    pitch: 0
+    pitch: 1
     loop: 0
     source: {fileID: 0}
   - name: Lazer_1
     clip: {fileID: 8300000, guid: 7e51895310e677b42adcf0f1715f2a5b, type: 3}
     volume: 1
-    pitch: 0
+    pitch: 1
     loop: 0
     source: {fileID: 0}
 --- !u!1 &1884365340 stripped
