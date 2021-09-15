@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 705507994}
-  m_IndirectSpecularColor: {r: 0.0048188563, g: 0.0044271736, b: 0.0041808393, a: 1}
+  m_IndirectSpecularColor: {r: 0.0036130405, g: 0.0033684152, b: 0.0035016788, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -365,7 +365,7 @@ Rigidbody:
   m_UseGravity: 0
   m_IsKinematic: 0
   m_Interpolate: 0
-  m_Constraints: 0
+  m_Constraints: 64
   m_CollisionDetection: 0
 --- !u!64 &387862545
 MeshCollider:
@@ -386,6 +386,33 @@ Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 96a6afa2fb17093468624ed2ea714802, type: 3}
   m_PrefabInstance: {fileID: 1048429120}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &387862548
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 387862542}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c28a913b158f0104fa9ce2a163d09028, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &387862549
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 387862542}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 83ce4ee442d098d48a2e2e774bff2440, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  firePoint: {fileID: 0}
+  firePoint2: {fileID: 0}
+  bulletPrefab: {fileID: 919132149155446097, guid: 46c193f78c1e9694083a5e9325c3f16e, type: 3}
 --- !u!114 &387862550
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -956,7 +983,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &884784303
 Transform:
   m_ObjectHideFlags: 0
@@ -1422,8 +1449,20 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c5bdef6e38d78a944a6cc757de9b3243, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  sounds: []
-  _startOnMute: 1
+  _isMuted: 1
+  sounds:
+  - name: Lazer_0
+    clip: {fileID: 8300000, guid: 50e583c9a076d4646ac7b9ac3b2db200, type: 3}
+    volume: 1
+    pitch: 0
+    loop: 0
+    source: {fileID: 0}
+  - name: Lazer_1
+    clip: {fileID: 8300000, guid: 7e51895310e677b42adcf0f1715f2a5b, type: 3}
+    volume: 1
+    pitch: 0
+    loop: 0
+    source: {fileID: 0}
 --- !u!1 &1884365340 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: b2f00921a579520488c21413e454bf8b, type: 3}

@@ -1,13 +1,35 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
+using UnityEngine.Audio;
 using UnityEngine;
 
 public class AudioHandler : MonoBehaviour
 {
-    public List<AudioSource> sounds;
+    //public List<AudioSource> sounds;
 
     [SerializeField]
     private bool _isMuted;
+
+    private bool _isPaused;
+
+
+    public Sound[] sounds;
+
+    private void Awake()
+    {
+        foreach (Sound s in sounds)
+        {
+            s.source = gameObject.AddComponent<AudioSource>();
+            s.source.clip = s.clip;
+
+            s.source.volume = s.volume;
+            s.source.pitch = s.pitch;
+            s.source.loop = s.loop;
+        }
+    }
+
+
     void Start()
     {        
         if (_isMuted)
@@ -24,6 +46,18 @@ public class AudioHandler : MonoBehaviour
         }
     }
 
+    public void Play(string name)
+    {
+        Sound s = Array.Find(sounds, sound => sound.name == name);
+        if (s == null)
+        {
+            Debug.LogWarning("Cound not find Audio Source: " + name);
+            return;
+        }
+        s.source.Play();
+    }
+
+
     private void MuteAudio()
     {
         if (_isMuted)
@@ -34,11 +68,9 @@ public class AudioHandler : MonoBehaviour
         } else
             AudioListener.volume = 0f;
             _isMuted = true;
-    }
-    
+    } 
 
-
-    public void PauseAdudio()
+    public void PauseAudio()
     {
         if (_isPaused)
         {
