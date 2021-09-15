@@ -92,11 +92,15 @@ Material:
     - _Mode: 0
     - _OcclusionStrength: 1
     - _Parallax: 0.02
+<<<<<<< Updated upstream
 <<<<<<< HEAD
     - _Rotation: 38.4025
 =======
     - _Rotation: 3.6269097
 >>>>>>> Marika
+=======
+    - _Rotation: 11.82645
+>>>>>>> Stashed changes
     - _SmoothnessTextureChannel: 0
     - _SpecularHighlights: 1
     - _SrcBlend: 1

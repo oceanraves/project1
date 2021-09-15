@@ -22,14 +22,14 @@ public class InputHandler : MonoBehaviour
                 _isPaused = false;
 
                 //bool paused = false;
-                _audioHandler.PauseAudio();
+                //_audioHandler.PauseAudio();
 
                 return;
             }
             else
             Time.timeScale = 0f;
             _isPaused = true;
-            _audioHandler.PauseAudio();
+            //_audioHandler.PauseAudio();
 
         }
     }
