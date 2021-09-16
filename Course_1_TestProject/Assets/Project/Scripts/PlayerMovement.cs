@@ -10,14 +10,11 @@ public class PlayerMovement : MonoBehaviour
     private Vector3 moveInput;
     private Vector3 moveVelocity;
     private Vector3 mousePosition;
-    private Vector3 screenPos;
-
-    //private Camera mainCamera;
 
     void Start()
     {
         myRigidbody = GetComponent<Rigidbody>();
-
+        
     }
 
     void Update()
@@ -37,13 +34,13 @@ public class PlayerMovement : MonoBehaviour
     {
         Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
 
-        Plane plane = new Plane(Vector3.right, Vector3.zero);
+        Plane plane = new Plane(Vector3.back, Vector3.zero);
 
         if (plane.Raycast(ray, out float distance))
         {
             Vector3 target = ray.GetPoint(distance);
             Vector3 direction = target - transform.position;
-            float rotation = Mathf.Atan2(direction.x, direction.y) * Mathf.Rad2Deg -180f;
+            float rotation = Mathf.Atan2(direction.x, direction.y) * Mathf.Rad2Deg + 180f;
             transform.rotation = Quaternion.Euler(180, 0, rotation);
         }
     }
