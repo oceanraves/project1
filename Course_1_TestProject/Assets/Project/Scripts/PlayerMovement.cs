@@ -35,10 +35,16 @@ public class PlayerMovement : MonoBehaviour
 
     private void Look()
     {
+        Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
 
+        Plane plane = new Plane(Vector3.right, Vector3.zero);
 
-
-
-
+        if (plane.Raycast(ray, out float distance))
+        {
+            Vector3 target = ray.GetPoint(distance);
+            Vector3 direction = target - transform.position;
+            float rotation = Mathf.Atan2(direction.x, direction.y) * Mathf.Rad2Deg -180f;
+            transform.rotation = Quaternion.Euler(180, 0, rotation);
+        }
     }
 }

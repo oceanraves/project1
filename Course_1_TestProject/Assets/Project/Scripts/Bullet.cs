@@ -4,16 +4,24 @@ using UnityEngine;
 
 public class Bullet : MonoBehaviour
 {
-    public float speed = 20f;
-    public Rigidbody rb;
+
+    public GameObject hitEffect;
+    public int damage = 10;
     // Start is called before the first frame update
     void Start()
     {
-        rb.velocity = transform.right * speed;
+        Destroy(this.gameObject, 5f);
     }
 
-    void OnTriggerEnter()
+    void OnCollisionEnter(Collision collision)
     {
         
+        if (collision.gameObject.tag == "Enemy")
+        {
+            GameObject explosion = Instantiate(hitEffect, transform.position, Quaternion.identity);
+            Destroy(explosion,1f);
+            Destroy(this.gameObject);
+
+        }
     }
 }
