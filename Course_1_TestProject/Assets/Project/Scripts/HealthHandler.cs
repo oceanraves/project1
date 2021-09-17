@@ -39,4 +39,12 @@ public class HealthHandler : MonoBehaviour
         Destroy(player);
         //SHOW GAME OVER UI (WITH BUTTONS TO EXIT OR RESTART)
     }
+
+
+
+
+
+
+
+
 }

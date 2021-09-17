@@ -32,9 +32,6 @@ public class EnemySpawner : MonoBehaviour
         }
     }
 
-
-
-
     private void StartSpawn()
     {
         _spawnRate = Random.Range(0f, 1000f);
