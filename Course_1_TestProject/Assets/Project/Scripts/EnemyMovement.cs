@@ -5,20 +5,35 @@ using UnityEngine;
 public class EnemyMovement : MonoBehaviour
 {
     [SerializeField]
-    bool move;
-    
-    public float _moveSpeed;
+    bool move = true;
+
+    [SerializeField]
+    float _moveSpeed;
+
     void Start()
     {
         
     }
 
+    public float SetMoveSpeed(float speed)
+    {
+        _moveSpeed = speed;
+        return speed;
+    }
 
     private void FixedUpdate()
     {
         if (move)
         {
             gameObject.transform.Translate(Vector3.left * _moveSpeed * Time.deltaTime);
+        }
+    }
+
+    private void OnTriggerExit(Collider collision)
+    {
+        if (collision.gameObject.tag == "Boundary")
+        {
+            Destroy(gameObject);
         }
     }
 }

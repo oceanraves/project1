@@ -6,6 +6,8 @@ TagManager:
   tags:
   - Enemy
   - Projectile
+  - Bullet
+  - Boundary
   layers:
   - Default
   - TransparentFX
