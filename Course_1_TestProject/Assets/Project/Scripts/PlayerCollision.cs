@@ -15,7 +15,7 @@ public class PlayerCollision : MonoBehaviour
         //ENEMY COLLISION BEHAVIOUR
         if (collision.collider.tag == "Enemy")
         {
-            _healthHandler.PlayerHit();
+            _healthHandler.PlayerHit(2);
             GameObject explosion = Instantiate(Resources.Load("Explosion_0", typeof(GameObject))) as GameObject;
             explosion.transform.position = collision.collider.transform.position;
             Destroy(collision.gameObject);
@@ -24,15 +24,19 @@ public class PlayerCollision : MonoBehaviour
 
     private void OnTriggerEnter(Collider collision)
     {
-        if (collision.gameObject.tag == "Bullet")
+        //ADD PLAY HURT ANIMATION
+        if (collision.gameObject.tag == "Bullet_00")
         {
-            //LOOSE HEALTH
-            //PLAY HURT ANIMATION
-            //(DEATH)
-
-            _healthHandler.PlayerHit();
-
-            Destroy(collision.gameObject);
+            _healthHandler.PlayerHit(0);
         }
+        if (collision.gameObject.tag == "Bullet_01")
+        {
+            _healthHandler.PlayerHit(1);
+        }
+        if (collision.gameObject.tag == "Bullet_02")
+        {
+            _healthHandler.PlayerHit(2);
+        }
+        Destroy(collision.gameObject);
     }
 }
