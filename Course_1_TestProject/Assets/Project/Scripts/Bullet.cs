@@ -13,7 +13,7 @@ public class Bullet : MonoBehaviour
         Destroy(this.gameObject, 5f);
     }
 
-    void OnCollisionEnter(Collision collision)
+    void OnTriggerEnter(Collider collision)
     {
         
         if (collision.gameObject.tag == "Enemy")
