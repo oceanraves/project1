@@ -109,8 +109,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f73254eacb1269d4680e9efd7782ba07, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  hitEffect: {fileID: 2122176747051824169, guid: c5809f8808fee2c40ac48b542a03238a, type: 3}
-  damage: 10
+  damage: 1
 --- !u!54 &-4522677748922757189
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -126,4 +125,4 @@ Rigidbody:
   m_IsKinematic: 0
   m_Interpolate: 0
   m_Constraints: 112
-  m_CollisionDetection: 1
+  m_CollisionDetection: 3

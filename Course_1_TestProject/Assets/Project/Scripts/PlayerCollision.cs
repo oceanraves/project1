@@ -39,4 +39,17 @@ public class PlayerCollision : MonoBehaviour
         }
         Destroy(collision.gameObject);
     }
+
+    /*
+    private void OnCollisionExit(Collision boundary)
+    {
+        if(boundary.gameObject.tag == "BoundaryPlayer")
+        {
+
+        }
+        
+    }
+    */
+
+
 }

@@ -15,6 +15,7 @@ public class EnemyMovement : MonoBehaviour
         
     }
 
+    //Gets Speed From "EnemySpawner"
     public float SetMoveSpeed(float speed)
     {
         _moveSpeed = speed;
@@ -28,10 +29,9 @@ public class EnemyMovement : MonoBehaviour
             gameObject.transform.Translate(Vector3.left * _moveSpeed * Time.deltaTime);
         }
     }
-
-    private void OnTriggerExit(Collider collision)
+    private void OnTriggerEnter(Collider boundary)
     {
-        if (collision.gameObject.tag == "Boundary")
+        if (boundary.gameObject.tag == "Boundary")
         {
             Destroy(gameObject);
         }

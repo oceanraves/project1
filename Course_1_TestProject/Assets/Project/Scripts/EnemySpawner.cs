@@ -8,42 +8,70 @@ public class EnemySpawner : MonoBehaviour
     private GameObject _clone;
     private Vector3 _spawnPoint;
     private float _newY;
+    private int _lastRate;
+
+    //[SerializeField]
     private float _spawnRate;
 
-    [SerializeField]
-    float overallSpawnFrequency;
-    [SerializeField]
-    float enemy00SpawnFrequency;
-    [SerializeField]
-    float enemy01SpawnFrequency;
-    [SerializeField]
-    float enemy02SpawnFrequency;
+    private float _counter;
 
     void Start()
     {
-        StartSpawn();
+        //SpawnRandomEnemy();
     }
 
     void Update()
     {
         if (Input.GetKeyDown(KeyCode.Return))
         {
-            StartSpawn();
-        }
-    }
-
-    private void StartSpawn()
-    {
-        _spawnRate = Random.Range(0f, 1000f);
-        Debug.Log("Spawnrate: " + _spawnRate);
-
-        for (int i = 0; i <= _spawnRate; i++)
-        {
-            Debug.Log("Do Over");
-        }
-        Debug.Log("Ready 2 Spawn");
             SpawnRandomEnemy();
+        }
     }
+
+    private void FixedUpdate()
+    {
+        if (Time.time > _counter + _spawnRate)
+        {
+            GetSpawnFrequency();
+            SpawnRandomEnemy();
+        }
+
+        Debug.Log("Spawnrate: " + _spawnRate);
+    }
+
+    private void GetSpawnFrequency()
+    {
+        if (Time.deltaTime < 20)
+        {
+            _spawnRate = 3;
+        }
+
+        if (Time.deltaTime >= 20 && Time.deltaTime < 30)
+        {
+            _spawnRate = 2.7f;
+        }
+
+        if (Time.deltaTime >= 30 && Time.deltaTime < 40)
+        {
+            _spawnRate = 2.5f;
+        }
+
+        if (Time.deltaTime >= 40 && Time.deltaTime < 50)
+        {
+            _spawnRate = 2.2f;
+        }
+
+        if (Time.deltaTime >= 50 && Time.deltaTime < 60)
+        {
+            _spawnRate = 2f;
+        }
+
+        if (Time.deltaTime >= 60 && Time.deltaTime < 70)
+        {
+            _spawnRate = 1.8f;
+        }
+    }
+
     private void SpawnRandomEnemy()
     {
         GetSpawnPoint();
@@ -52,9 +80,9 @@ public class EnemySpawner : MonoBehaviour
         _clone.transform.position = _spawnPoint;
 
         _clone.AddComponent<EnemyMovement>();
-        _clone.GetComponent<EnemyMovement>().SetMoveSpeed(20f);
+        _clone.GetComponent<EnemyMovement>().SetMoveSpeed(5f);
 
-        //StartSpawn();
+        _counter = Time.time;
     }
 
     private void GetSpawnPoint()

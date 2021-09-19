@@ -8,18 +8,6 @@ public class HealthHandler : MonoBehaviour
     private int _bulletDamage;
     private int _playerDamage;
 
-    private GameObject _enemy00;
-    private GameObject _enemy01;
-    private GameObject _enemy02;
-    private GameObject _enemy03;
-
-    private int _enemyHealth00 = 1;
-    private int _enemyHealth01 = 1;
-    private int _enemyHealth02 = 1;
-    private int _enemyHealth03 = 1;
-
-
-
     void Start()
     {
         _playerHealth = 10;
@@ -57,24 +45,6 @@ public class HealthHandler : MonoBehaviour
         }
     }
 
-
-    public void EnemyHealth(int enemyType)
-    {
-        if (enemyType == 0)
-        {
-
-        }
-        if (enemyType == 1)
-        {
-
-        }
-        if (enemyType == 2)
-        {
-
-        }
-
-    }
-
     private void PlayerDeath()
     {
         Debug.Log("Player is Dead");
@@ -85,6 +55,12 @@ public class HealthHandler : MonoBehaviour
 
         Destroy(player);
         //SHOW GAME OVER UI (WITH BUTTONS TO EXIT OR RESTART)
+    }
+
+    public void EnemyDeath(Vector3 position)
+    {
+        GameObject explosion = Instantiate(Resources.Load("Explosion_0", typeof(GameObject))) as GameObject;
+        explosion.transform.position = position;
     }
 
 

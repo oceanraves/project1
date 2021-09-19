@@ -33,7 +33,6 @@ public class EnemyInstantiation : MonoBehaviour
     private void SpawnEnemy()
     {
         SetSpawnPoint();
-        //_clone = Instantiate(_enemy0, _spawnPoint, Quaternion.identity);
     }
 
 }
