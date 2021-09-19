@@ -28,7 +28,7 @@ public class Enemy00x4Shooting : MonoBehaviour
 
     void CheckFire()
     {
-        if (Time.time > nextFire)
+        if (Time.time > nextFire && firePoint1 != null && firePoint2 != null && firePoint3 != null && firePoint4 != null)
         {
             GameObject eBullet = Instantiate(enemyBullet, firePoint1.position, firePoint1.rotation);
             GameObject eBullet1 = Instantiate(enemyBullet, firePoint2.position, firePoint2.rotation);
