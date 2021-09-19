@@ -48,16 +48,14 @@ public class HealthHandler : MonoBehaviour
     private void PlayerDeath()
     {
         Debug.Log("Player is Dead");
-        GameObject player = GameObject.Find("Player_Spaceship");
+        GameObject player = GameObject.Find("TEST_Player_Spaceship Variant");
 
-        GameObject explosion = Instantiate(Resources.Load("Explosion_0", typeof(GameObject))) as GameObject;
-        explosion.transform.position = player.transform.position;
-
+        SpawnExplosion(player.transform.position);
         Destroy(player);
         //SHOW GAME OVER UI (WITH BUTTONS TO EXIT OR RESTART)
     }
 
-    public void EnemyDeath(Vector3 position)
+    public void SpawnExplosion(Vector3 position)
     {
         GameObject explosion = Instantiate(Resources.Load("Explosion_0", typeof(GameObject))) as GameObject;
         explosion.transform.position = position;
