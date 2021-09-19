@@ -218,13 +218,13 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1340186778214227063}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 1, w: 0}
   m_LocalPosition: {x: -0.08, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 3176240096835758257}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 180}
 --- !u!1 &4531635117917108427
 GameObject:
   m_ObjectHideFlags: 0
@@ -235,7 +235,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7052559863413688409}
   - component: {fileID: 5000090788443142227}
-  - component: {fileID: 1034246218721961063}
+  - component: {fileID: 3207614584279886746}
   m_Layer: 0
   m_Name: Enemy_00_x2
   m_TagString: Untagged
@@ -272,7 +272,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   move: 1
   _moveSpeed: 0
---- !u!114 &1034246218721961063
+--- !u!114 &3207614584279886746
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -287,5 +287,5 @@ MonoBehaviour:
   enemyBullet: {fileID: 1764615526739776748, guid: 637c45dabbe8d0f4897d65598a8a4ba2, type: 3}
   firePoint1: {fileID: 3412648108742879499}
   firePoint2: {fileID: 2228565442676713979}
-  bulletForce: 50
+  bulletForce: 40
   fireRate: 1
