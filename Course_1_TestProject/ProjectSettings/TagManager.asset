@@ -8,6 +8,9 @@ TagManager:
   - Projectile
   - Bullet
   - Boundary
+  - Bullet_00
+  - Bullet_01
+  - Bullet_02
   layers:
   - Default
   - TransparentFX

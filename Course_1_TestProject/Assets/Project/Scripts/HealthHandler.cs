@@ -5,27 +5,74 @@ using UnityEngine;
 public class HealthHandler : MonoBehaviour
 {
     private int _playerHealth;
-    private int bulletDamage;
+    private int _bulletDamage;
+    private int _playerDamage;
+
+    private GameObject _enemy00;
+    private GameObject _enemy01;
+    private GameObject _enemy02;
+    private GameObject _enemy03;
+
+    private int _enemyHealth00 = 1;
+    private int _enemyHealth01 = 1;
+    private int _enemyHealth02 = 1;
+    private int _enemyHealth03 = 1;
+
+
 
     void Start()
     {
         _playerHealth = 10;
-        bulletDamage = 1;
-        //collision damage
-        //bullet damage (Enemy0)
-        //bullet damage (Enemy1)
-        //bullet damage (Enemy2)
+        _bulletDamage = 1;       
     }
 
-    public void PlayerHit()
+    //GETS ENEMY TYPE FROM "PlayerCollision" CLASS.
+    public void PlayerHit(int enemyType)
     {
-        _playerHealth = _playerHealth - bulletDamage;
+        if (enemyType == 0)
+        {
+            _bulletDamage = 1;
+        }
+
+        if (enemyType == 1)
+        {
+            _bulletDamage = 3;
+        }
+
+        if (enemyType == 2)
+        {
+            _bulletDamage = 2;
+        }
+        PlayerHealth();
+    }
+
+    private void PlayerHealth()
+    {
+        _playerHealth -= _bulletDamage;
         Debug.Log("Hit! Player Health = " + _playerHealth);
 
         if (_playerHealth <= 0)
         {
             PlayerDeath();
         }
+    }
+
+
+    public void EnemyHealth(int enemyType)
+    {
+        if (enemyType == 0)
+        {
+
+        }
+        if (enemyType == 1)
+        {
+
+        }
+        if (enemyType == 2)
+        {
+
+        }
+
     }
 
     private void PlayerDeath()
