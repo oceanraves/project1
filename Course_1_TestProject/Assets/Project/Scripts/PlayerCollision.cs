@@ -22,8 +22,16 @@ public class PlayerCollision : MonoBehaviour
         }
     }
 
+
+
     private void OnTriggerEnter(Collider collision)
     {
+        if (collision.gameObject.tag == "Projectile")
+        {
+            _healthHandler.PlayerHit(0);
+        }
+
+
         //ADD PLAY HURT ANIMATION
         if (collision.gameObject.tag == "Bullet_00")
         {

@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 705507994}
-  m_IndirectSpecularColor: {r: 0.0035883884, g: 0.0035836338, b: 0.003942111, a: 1}
+  m_IndirectSpecularColor: {r: 0.0028500892, g: 0.0027017999, b: 0.0027242147, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -252,10 +252,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 02d80c0714a38ca40ae05db6f3833170, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  overallSpawnFrequency: 0
-  enemy00SpawnFrequency: 0
-  enemy01SpawnFrequency: 0
-  enemy02SpawnFrequency: 0
 --- !u!4 &137108998
 Transform:
   m_ObjectHideFlags: 0
@@ -1547,6 +1543,18 @@ PrefabInstance:
     - target: {fileID: 387862545, guid: 9d7eeffe201abc0439ac8c9c0e2cbb61, type: 3}
       propertyPath: m_Enabled
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 445146382, guid: 9d7eeffe201abc0439ac8c9c0e2cbb61, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.0406
+      objectReference: {fileID: 0}
+    - target: {fileID: 960279018, guid: 9d7eeffe201abc0439ac8c9c0e2cbb61, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0.023699997
+      objectReference: {fileID: 0}
+    - target: {fileID: 960279018, guid: 9d7eeffe201abc0439ac8c9c0e2cbb61, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.040599987
       objectReference: {fileID: 0}
     - target: {fileID: 3497762501899257408, guid: 9d7eeffe201abc0439ac8c9c0e2cbb61, type: 3}
       propertyPath: m_RootOrder

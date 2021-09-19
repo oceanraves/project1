@@ -62,12 +62,4 @@ public class HealthHandler : MonoBehaviour
         GameObject explosion = Instantiate(Resources.Load("Explosion_0", typeof(GameObject))) as GameObject;
         explosion.transform.position = position;
     }
-
-
-
-
-
-
-
-
 }
