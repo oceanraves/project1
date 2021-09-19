@@ -14,8 +14,16 @@ public class Bullet : MonoBehaviour
     {
         if (boundary.gameObject.tag == "Boundary")
         {
-            Debug.Log("triggered");
+            Destroy(gameObject);
+        }
+
+        if (boundary.gameObject.tag == "Projectile")
+        {
             Destroy(gameObject);
         }
     }    
+
+
+
+
 }
