@@ -47,7 +47,7 @@ public class EnemyHealth : MonoBehaviour
             if (health <= 0)
             {
                 _audioHandler.Play("EnemyExplode");
-                _healthHandler.EnemyDeath(gameObject.transform.position);
+                _healthHandler.SpawnExplosion(gameObject.transform.position);
                 Destroy(gameObject);
             }
             ColorChange();
