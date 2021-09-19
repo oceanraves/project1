@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 705507994}
-  m_IndirectSpecularColor: {r: 0.002281539, g: 0.0022094822, b: 0.002361132, a: 1}
+  m_IndirectSpecularColor: {r: 0.0035924646, g: 0.0033083593, b: 0.0029800797, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -1419,6 +1419,7 @@ GameObject:
   - component: {fileID: 963194227}
   - component: {fileID: 963194226}
   - component: {fileID: 963194229}
+  - component: {fileID: 963194230}
   m_Layer: 6
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -1551,6 +1552,20 @@ MonoBehaviour:
   m_BeforeTransparentBundles: []
   m_BeforeStackBundles: []
   m_AfterStackBundles: []
+--- !u!114 &963194230
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 963194225}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f70bd50b612e5b04c8e97a371ba77d65, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  player: {fileID: 3497762501482198839}
+  offset: {x: 0, y: 0, z: 0}
 --- !u!1 &966741857
 GameObject:
   m_ObjectHideFlags: 0
@@ -2194,7 +2209,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c5bdef6e38d78a944a6cc757de9b3243, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _isMuted: 1
+  _isMuted: 0
   sounds:
   - name: Lazer_0
     clip: {fileID: 8300000, guid: 50e583c9a076d4646ac7b9ac3b2db200, type: 3}
@@ -2210,7 +2225,7 @@ MonoBehaviour:
     source: {fileID: 0}
   - name: EnemyExplode
     clip: {fileID: 8300000, guid: 792fefc1c2fbd144395b9d1b65856705, type: 3}
-    volume: 0.143
+    volume: 0.5
     pitch: 1
     loop: 0
     source: {fileID: 0}
