@@ -27,11 +27,15 @@ public class PlayerShooting : MonoBehaviour
 
     void Shoot()
     {
-        GameObject bullet =Instantiate(bulletPrefab, firePoint.position, firePoint.rotation);
-        GameObject bullet1= Instantiate(bulletPrefab, firePoint2.position, firePoint2.rotation);
-        Rigidbody rb = bullet.GetComponent<Rigidbody>();
-        Rigidbody rb1 = bullet1.GetComponent<Rigidbody>();
-        rb.AddForce(firePoint.right * bulletForce, ForceMode.Impulse);
-        rb1.AddForce(firePoint.right * bulletForce, ForceMode.Impulse);
+        if (firePoint != null && firePoint2 != null)
+        {
+            GameObject bullet =Instantiate(bulletPrefab, firePoint.position, firePoint.rotation);
+            GameObject bullet1= Instantiate(bulletPrefab, firePoint2.position, firePoint2.rotation);
+            Rigidbody rb = bullet.GetComponent<Rigidbody>();
+            Rigidbody rb1 = bullet1.GetComponent<Rigidbody>();
+            rb.AddForce(firePoint.right * bulletForce, ForceMode.Impulse);
+            rb1.AddForce(firePoint.right * bulletForce, ForceMode.Impulse);
+        }
+        
     }
 }
