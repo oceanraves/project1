@@ -12,10 +12,9 @@ GameObject:
   - component: {fileID: 2637182217881240051}
   - component: {fileID: 251585890518381881}
   - component: {fileID: 1764615526739776749}
-  - component: {fileID: 878735441141477622}
   - component: {fileID: -4522677748922757189}
   m_Layer: 0
-  m_Name: Projectile_Prefab
+  m_Name: EnemyBulletBig
   m_TagString: Projectile
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -28,13 +27,13 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1764615526739776748}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: 1, y: 0, z: 0, w: 0}
   m_LocalPosition: {x: -37.181942, y: 22.914951, z: 17}
   m_LocalScale: {x: 10, y: 10, z: 10}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 180, y: 0, z: 0}
 --- !u!33 &2637182217881240051
 MeshFilter:
   m_ObjectHideFlags: 0
@@ -62,7 +61,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 53b5d6c05740eca418792812ac1cc1d6, type: 2}
+  - {fileID: 2100000, guid: cba1df71d8dadcd44a135ed6344791ba, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -92,25 +91,11 @@ BoxCollider:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1764615526739776748}
   m_Material: {fileID: 0}
-  m_IsTrigger: 1
+  m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
   m_Size: {x: 0.07, y: 0.018, z: 0.5}
   m_Center: {x: 0, y: -4.656614e-10, z: 0}
---- !u!114 &878735441141477622
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1764615526739776748}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f73254eacb1269d4680e9efd7782ba07, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  hitEffect: {fileID: 2122176747051824169, guid: c5809f8808fee2c40ac48b542a03238a, type: 3}
-  damage: 0
 --- !u!54 &-4522677748922757189
 Rigidbody:
   m_ObjectHideFlags: 0
