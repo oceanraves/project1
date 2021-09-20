@@ -228,7 +228,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: 96a6afa2fb17093468624ed2ea714802, type: 3}
       propertyPath: m_Name
-      value: Player_Spaceship
+      value: TEST_Player_Spaceship Variant
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 96a6afa2fb17093468624ed2ea714802, type: 3}
+      propertyPath: m_TagString
+      value: Player
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 96a6afa2fb17093468624ed2ea714802, type: 3}

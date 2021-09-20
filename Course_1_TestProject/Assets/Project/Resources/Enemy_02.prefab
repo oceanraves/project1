@@ -113,7 +113,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3223195584394525762}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 7973557875066bf4387c63f4d725ed28, type: 3}
   m_Name: 
@@ -134,11 +134,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   enemyBullet: {fileID: 1764615526739776748, guid: 511805d31e522464bbb33824853373b7, type: 3}
   firePoint: {fileID: 4160505729202338124}
-  bulletForce: 10
-  fireRate: 5
-  player: {fileID: 0}
-  moveSpeed: 10
-  distanceFromTarget: 6
+  bulletForce: 20
+  fireRate: 2
 --- !u!1001 &2994510312793359370
 PrefabInstance:
   m_ObjectHideFlags: 0

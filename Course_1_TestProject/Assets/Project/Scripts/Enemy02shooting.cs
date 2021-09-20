@@ -12,15 +12,9 @@ public class Enemy02shooting : MonoBehaviour
     public float fireRate = 1f;
     float nextFire;
 
-    public Transform player;
-    public float moveSpeed = 6f;
-    public float distanceFromTarget = 3f;
-
-
     void Start()
     {
         nextFire = Time.time;
-        player = GameObject.FindGameObjectWithTag("Player").transform;
     }
 
     // Update is called once per frame
@@ -28,19 +22,6 @@ public class Enemy02shooting : MonoBehaviour
     {
         CheckFire();
 
-        Vector3 distance = player.position - transform.position;
-        Vector3 direction = distance.normalized;
-        Vector3 velocity = direction * moveSpeed;
-
-        float distanceToTarget = distance.magnitude;
-
-        if (distanceToTarget > distanceFromTarget)
-        {
-
-            transform.Translate(velocity * Time.deltaTime);
-
-
-        }
     }
 
     void CheckFire()

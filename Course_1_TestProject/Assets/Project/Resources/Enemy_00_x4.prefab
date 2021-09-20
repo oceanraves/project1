@@ -379,5 +379,5 @@ MonoBehaviour:
   firePoint2: {fileID: 2568026778406468007}
   firePoint3: {fileID: 8910264604495833632}
   firePoint4: {fileID: 8489273226125975329}
-  bulletForce: 10
+  bulletForce: 20
   fireRate: 1
