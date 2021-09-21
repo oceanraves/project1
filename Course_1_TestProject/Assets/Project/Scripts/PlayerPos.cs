@@ -9,9 +9,9 @@ public class PlayerPos : MonoBehaviour
     private LevelDisplay _lDisplay;
     void Start()
     {
-        _gameMaster = GameObject.Find("GameMaster").GetComponent<GameMaster>();
+        //_gameMaster = GameObject.Find("GameMaster").GetComponent<GameMaster>();
         _lDisplay = GameObject.Find("Level").GetComponent<LevelDisplay>();
-        transform.position = _gameMaster.lastCheckPointPos;
+        //transform.position = _gameMaster.lastCheckPointPos;
         level = 1;
         _lDisplay.SetLevel(level.ToString());
     }
@@ -20,7 +20,7 @@ public class PlayerPos : MonoBehaviour
         if (Time.time >= 10 && level <= 1)
         {
             level = 2;
-            _gameMaster.lastCheckPointPos = transform.position;
+            //_gameMaster.lastCheckPointPos = transform.position;
             _lDisplay.SetLevel(level.ToString());
         }
         if (Time.time >= 20 && level <= 2)

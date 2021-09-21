@@ -22,7 +22,7 @@ public class HealthHandler : MonoBehaviour
         _bulletDamage = 1;
         _playerLives = 3;
 
-        _gameMaster = GameObject.Find("GameMaster").GetComponent<GameMaster>();
+        //_gameMaster = GameObject.Find("GameMaster").GetComponent<GameMaster>();
         _sceneHandler = GameObject.Find("SceneHandler").GetComponent<SceneHandler>();
         _player = GameObject.Find("TEST_Player_Spaceship Variant");
         _pMovement = _player.GetComponent<PlayerMovement>();
