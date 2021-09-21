@@ -26,19 +26,19 @@ public class PlayerPos : MonoBehaviour
         if (Time.time >= 20 && level <= 2)
         {
             level = 3;
-            _gameMaster.lastCheckPointPos = transform.position;
+           // _gameMaster.lastCheckPointPos = transform.position;
             _lDisplay.SetLevel(level.ToString());
         }
         if (Time.time >= 30 && level <= 3)
         {
             level = 4;
-            _gameMaster.lastCheckPointPos = transform.position;
+            //_gameMaster.lastCheckPointPos = transform.position;
             _lDisplay.SetLevel(level.ToString());
         }
         if (Time.time >= 40 && level <= 4)
         {
             level = 5;
-            _gameMaster.lastCheckPointPos = transform.position;
+            //_gameMaster.lastCheckPointPos = transform.position;
             _lDisplay.SetLevel(level.ToString());
         }
     }
