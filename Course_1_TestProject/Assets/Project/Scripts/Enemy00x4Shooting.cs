@@ -15,6 +15,7 @@ public class Enemy00x4Shooting : MonoBehaviour
     public float fireRate = 1f;
     float nextFire;
 
+    public bool isDead;
     void Start()
     {
         nextFire = Time.time;
@@ -22,7 +23,10 @@ public class Enemy00x4Shooting : MonoBehaviour
 
     void Update()
     {
-        CheckFire();
+        if (!isDead)
+        {
+            CheckFire();
+        }
     }
 
     void CheckFire()

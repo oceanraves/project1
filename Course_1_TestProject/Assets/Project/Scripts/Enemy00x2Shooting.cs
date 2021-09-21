@@ -12,7 +12,9 @@ public class Enemy00x2Shooting : MonoBehaviour
     public float bulletForce;
     public float fireRate = 1f;
     float nextFire;
-   
+
+    public bool isDead = false;
+
     void Start()
     {
         nextFire = Time.time;
@@ -20,7 +22,10 @@ public class Enemy00x2Shooting : MonoBehaviour
 
     void Update()
     {
-        CheckFire();
+        if (!isDead)
+        {
+            CheckFire();
+        }
     }
 
     void CheckFire()
