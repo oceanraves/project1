@@ -60,19 +60,6 @@ CapsuleCollider:
   m_Height: 0.15
   m_Direction: 1
   m_Center: {x: -0.00000011885178, y: 0.002, z: -0.00060889125}
---- !u!114 &3211770146563065697
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2688590232760613211}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 43d620b7be3e21d49829482e67d679a2, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  health: 6
 --- !u!95 &7806537104675093045
 Animator:
   serializedVersion: 3
@@ -92,6 +79,36 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &3211770146563065697
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2688590232760613211}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 43d620b7be3e21d49829482e67d679a2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  health: 6
+--- !u!114 &1797448217791082029
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2688590232760613211}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 05430bdfe55ac894783780b6d0044321, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  enemyBullet: {fileID: 1764615526739776748, guid: 511805d31e522464bbb33824853373b7, type: 3}
+  firePoint: {fileID: 4160505729202338124}
+  bulletForce: 20
+  fireRate: 1.5
+  isDead: 0
 --- !u!1 &3223195584394525762
 GameObject:
   m_ObjectHideFlags: 0
@@ -146,7 +163,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3223195584394525762}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 05430bdfe55ac894783780b6d0044321, type: 3}
   m_Name: 
@@ -155,6 +172,7 @@ MonoBehaviour:
   firePoint: {fileID: 4160505729202338124}
   bulletForce: 20
   fireRate: 1.5
+  isDead: 0
 --- !u!1001 &2994510312793359370
 PrefabInstance:
   m_ObjectHideFlags: 0

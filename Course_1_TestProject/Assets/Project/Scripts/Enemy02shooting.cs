@@ -12,6 +12,9 @@ public class Enemy02shooting : MonoBehaviour
     public float fireRate = 1f;
     float nextFire;
 
+    public bool isDead = false;
+
+
     void Start()
     {
         nextFire = Time.time;
@@ -20,8 +23,10 @@ public class Enemy02shooting : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        CheckFire();
-
+        if (!isDead)
+        {
+            CheckFire();
+        }
     }
 
     void CheckFire()

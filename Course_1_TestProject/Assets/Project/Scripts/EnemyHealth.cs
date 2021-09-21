@@ -64,6 +64,11 @@ public class EnemyHealth : MonoBehaviour
                 {
                     _animator.SetBool("Dead", true);
 
+                    if (gameObject.GetComponent<Enemy02shooting>() != null)
+                    {
+                        gameObject.GetComponent<Enemy02shooting>().isDead = true;
+                    }
+
                     //_animator.GetBool("Dead");
 
                     foreach (BoxCollider collider in _allColliders)
