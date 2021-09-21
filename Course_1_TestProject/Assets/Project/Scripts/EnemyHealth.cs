@@ -55,6 +55,8 @@ public class EnemyHealth : MonoBehaviour
             {
                 _audioHandler.Play("EnemyExplode");
 
+                FindObjectOfType<ScoreDisplay>().AddScore();
+
                 EnemySpawner enemySpawner = GameObject.Find("EnemySpawner").GetComponent<EnemySpawner>();
                 enemySpawner.SpawnExplosion(gameObject.transform.position, "Ship");
 
