@@ -20,7 +20,6 @@ public class Enemy00x4Shooting : MonoBehaviour
         nextFire = Time.time;
     }
 
-    // Update is called once per frame
     void Update()
     {
         CheckFire();
@@ -34,6 +33,12 @@ public class Enemy00x4Shooting : MonoBehaviour
             GameObject eBullet1 = Instantiate(enemyBullet, firePoint2.position, firePoint2.rotation);
             GameObject eBullet2 = Instantiate(enemyBullet, firePoint3.position, firePoint3.rotation);
             GameObject eBullet3 = Instantiate(enemyBullet, firePoint4.position, firePoint4.rotation);
+            
+            eBullet.GetComponent<Bullet>().fromPlayer = false; //tags enemy bullet
+            eBullet1.GetComponent<Bullet>().fromPlayer = false; //tags enemy bullet
+            eBullet2.GetComponent<Bullet>().fromPlayer = false; //tags enemy bullet
+            eBullet3.GetComponent<Bullet>().fromPlayer = false; //tags enemy bullet
+
             Rigidbody rb = eBullet.GetComponent<Rigidbody>();
             Rigidbody rb1 = eBullet1.GetComponent<Rigidbody>();
             Rigidbody rb2 = eBullet2.GetComponent<Rigidbody>();

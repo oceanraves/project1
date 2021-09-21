@@ -7,7 +7,7 @@ using UnityEngine;
 public class AudioHandler : MonoBehaviour
 {
     //public List<AudioSource> sounds;
-
+     
     [SerializeField]
     private bool _isMuted;
 

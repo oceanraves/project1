@@ -11,23 +11,31 @@ public class PlayerMovement : MonoBehaviour
     private Vector3 moveVelocity;
     private Vector3 mousePosition;
 
+    public bool playerEnabled = true;
+
     void Start()
     {
-        myRigidbody = GetComponent<Rigidbody>();
-        
+        myRigidbody = GetComponent<Rigidbody>();        
     }
 
     void Update()
     {
-        moveInput = new Vector3(Input.GetAxis("Horizontal"), Input.GetAxis("Vertical"), 0f);
-        moveVelocity = moveInput * moveSpeed;
-        Look();
-
+        if (playerEnabled)
+        {
+            moveInput = new Vector3(Input.GetAxis("Horizontal"), Input.GetAxis("Vertical"), 0f);
+            moveVelocity = moveInput * moveSpeed;
+            Look();
+        }
     }
 
     private void FixedUpdate()
     {
-        myRigidbody.velocity = moveVelocity;
+        if (playerEnabled)
+        {
+            myRigidbody.velocity = moveVelocity;
+        }
+        else
+            myRigidbody.velocity = Vector3.zero;
     }
 
     private void Look()

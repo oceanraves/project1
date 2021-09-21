@@ -7,11 +7,27 @@ public class HealthHandler : MonoBehaviour
     private int _playerHealth;
     private int _bulletDamage;
     private int _playerDamage;
+    private int _playerLives;
+
+    private GameMaster _gameMaster;
+    private SceneHandler _sceneHandler;
+    private GameObject _player;
+    private PlayerMovement _pMovement;
+    private HealthBar _healthBar;
+    private LivesDisplay _lDisplay;
 
     void Start()
     {
         _playerHealth = 10;
-        _bulletDamage = 1;       
+        _bulletDamage = 1;
+        _playerLives = 3;
+
+        _gameMaster = GameObject.Find("GameMaster").GetComponent<GameMaster>();
+        _sceneHandler = GameObject.Find("SceneHandler").GetComponent<SceneHandler>();
+        _player = GameObject.Find("TEST_Player_Spaceship Variant");
+        _pMovement = _player.GetComponent<PlayerMovement>();
+        _healthBar = GameObject.Find("HealthBar").GetComponent<HealthBar>();
+        _lDisplay = GameObject.Find("Lives").GetComponent<LivesDisplay>();
     }
 
     //GETS ENEMY TYPE FROM "PlayerCollision" CLASS.
@@ -33,31 +49,53 @@ public class HealthHandler : MonoBehaviour
         }
         PlayerHealth();
     }
-
     private void PlayerHealth()
     {
         _playerHealth -= _bulletDamage;
-        Debug.Log("Hit! Player Health = " + _playerHealth);
+        _healthBar.SetHealth(_playerHealth);
 
         if (_playerHealth <= 0)
         {
-            PlayerDeath();
+            _playerLives -= 1;
+            _lDisplay.SetLives(_playerLives.ToString());
+            if (_playerLives <= 0)
+            {
+                Debug.Log("GAME OVEAH");
+                GameOver();
+            } else
+            {
+                PlayerDeath();
+            }
         }
     }
 
     private void PlayerDeath()
     {
-        Debug.Log("Player is Dead");
-        GameObject player = GameObject.Find("TEST_Player_Spaceship Variant");
+        //INSTANTIATE EXPLOSION
+        EnemySpawner enemySpawner = GameObject.Find("EnemySpawner").GetComponent<EnemySpawner>();
+        enemySpawner.SpawnExplosion(_player.transform.position, "Ship");
+        //---------------------
 
-        SpawnExplosion(player.transform.position);
-        Destroy(player);
-        //SHOW GAME OVER UI (WITH BUTTONS TO EXIT OR RESTART)
+        //PLAY DEATH ANIMATION
+        _player.GetComponent<Animator>().SetTrigger("Finished");
+        //---------------------
+
+        //DISABLE PLAYER CONTROL UNTIL RESPAWN
+        _pMovement.playerEnabled = false;
+        //---------------------
     }
-
-    public void SpawnExplosion(Vector3 position)
+    public void Respawn()
     {
-        GameObject explosion = Instantiate(Resources.Load("Explosion_0", typeof(GameObject))) as GameObject;
-        explosion.transform.position = position;
+        _playerHealth = 10;
+        _healthBar.SetHealth(_playerHealth);
+        _pMovement.playerEnabled = true;
+    }
+    private void GameOver()
+    {
+        Debug.Log("GAME OVEAH");
+        //CALL UI OVERLAY (GAME OVER SCREEN, RESTART OR QUIT OPTIONS)
+        _gameMaster.lastCheckPointPos = _player.transform.position;
+        _lDisplay.SetLives(_playerLives.ToString());
+        _sceneHandler.LoadLevel1();
     }
 }

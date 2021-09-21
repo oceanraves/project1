@@ -12,7 +12,6 @@ public class EnemyMovement : MonoBehaviour
 
     void Start()
     {
-        
     }
 
     //Gets Speed From "EnemySpawner"

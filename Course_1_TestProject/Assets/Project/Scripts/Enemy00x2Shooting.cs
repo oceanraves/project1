@@ -18,7 +18,6 @@ public class Enemy00x2Shooting : MonoBehaviour
         nextFire = Time.time;
     }
 
-    // Update is called once per frame
     void Update()
     {
         CheckFire();
@@ -30,6 +29,9 @@ public class Enemy00x2Shooting : MonoBehaviour
         {
             GameObject eBullet = Instantiate(enemyBullet, firePoint1.position, firePoint1.rotation);
             GameObject eBullet1 =Instantiate(enemyBullet, firePoint2.position, firePoint2.rotation);
+            eBullet.GetComponent<Bullet>().fromPlayer = false; //tags enemy bullet
+            eBullet1.GetComponent<Bullet>().fromPlayer = false; //tags enemy bullet
+
             Rigidbody rb = eBullet.GetComponent<Rigidbody>();
             Rigidbody rb1 = eBullet1.GetComponent<Rigidbody>();
             rb.AddForce(firePoint1.right * bulletForce, ForceMode.Impulse);

@@ -9,35 +9,42 @@ public class EnemyHealth : MonoBehaviour
 
     private Renderer _rend;
     private Material[] _materials;
-    private Color _originalMat;
-
-    private HealthHandler _healthHandler;
 
     private bool _isRed = false;
     private float _counter;
+
+    private HealthHandler _healthHandler;
     private AudioHandler _audioHandler;
+    private ColorChange _colorChange;
+    private Animator _animator;
+
+    private BoxCollider[] _allColliders;
 
     void Start()
     {
-        _rend = gameObject.GetComponent<Renderer>();
-        _materials = _rend.materials;
-        _originalMat = _materials[1].color;
-
         _healthHandler = GameObject.Find("HealthHandler").GetComponent<HealthHandler>();
         _audioHandler = GameObject.Find("AudioHandler").GetComponent<AudioHandler>();
+        _colorChange = GameObject.Find("ColorChange").GetComponent<ColorChange>();
+        _allColliders = gameObject.GetComponents<BoxCollider>();
+
+        //Store Color Data
+        _rend = gameObject.GetComponent<Renderer>();
+        _materials = _rend.materials;
+        //------------------------------------------
     }
 
     private void Update()
     {
         if (_isRed && Time.time > _counter + 0.05f)
         {
-            ColorChangeBack();
+            //_colorChange.ColorChangeBack(_materials);
+            _isRed = false;
         }
     }
-
+        
     private void OnTriggerEnter(Collider bullet)
     {
-        if (bullet.gameObject.tag == "Projectile")
+        if (bullet.gameObject.tag == "Projectile" && bullet.GetComponent<Bullet>().fromPlayer == true)
         {            
             if(bullet.GetComponent<Bullet>() != null)
             {
@@ -47,14 +54,35 @@ public class EnemyHealth : MonoBehaviour
             if (health <= 0)
             {
                 _audioHandler.Play("EnemyExplode");
-                _healthHandler.SpawnExplosion(gameObject.transform.position);
-                Destroy(gameObject);
+
+                EnemySpawner enemySpawner = GameObject.Find("EnemySpawner").GetComponent<EnemySpawner>();
+                enemySpawner.SpawnExplosion(gameObject.transform.position, "Ship");
+
+                _animator = gameObject.GetComponent<Animator>();
+
+                if (_animator != null)
+                {
+                    _animator.SetBool("Dead", true);
+
+                    //_animator.GetBool("Dead");
+
+                    foreach (BoxCollider collider in _allColliders)
+                    Destroy(collider);
+
+                    Destroy(gameObject, 1.5f);
+                } else
+                    Destroy(gameObject);
             }
-            ColorChange();
+
+            _isRed = true;
+            _counter = Time.time;
+            //_colorChange.StoreColor(_materials);
+
             Destroy(bullet.gameObject);
         }
     }
 
+    /*
     //COLOR---------------------------------------------------
     private void ColorChange()
     {
@@ -65,9 +93,9 @@ public class EnemyHealth : MonoBehaviour
 
     private void ColorChangeBack()
     {
-        //Debug.Log("Called Change Back");
         _materials[1].color = _originalMat;
         _isRed = false;
     }
     //--------------------------------------------------------
+    */
 }

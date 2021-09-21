@@ -22,8 +22,6 @@ public class PlayerCollision : MonoBehaviour
         }
     }
 
-
-
     private void OnTriggerEnter(Collider collision)
     {
         if (collision.gameObject.tag == "Projectile")
@@ -47,17 +45,4 @@ public class PlayerCollision : MonoBehaviour
         }
         Destroy(collision.gameObject);
     }
-
-    /*
-    private void OnCollisionExit(Collision boundary)
-    {
-        if(boundary.gameObject.tag == "BoundaryPlayer")
-        {
-
-        }
-        
-    }
-    */
-
-
 }

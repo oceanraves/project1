@@ -15,10 +15,6 @@ public class EnemySpawner : MonoBehaviour
 
     private float _counter;
 
-    void Start()
-    {
-        //SpawnRandomEnemy();
-    }
 
     void Update()
     {
@@ -26,10 +22,7 @@ public class EnemySpawner : MonoBehaviour
         {
             SpawnRandomEnemy();
         }
-    }
 
-    private void FixedUpdate()
-    {
         if (Time.time > _counter + _spawnRate)
         {
             GetSpawnFrequency();
@@ -41,37 +34,36 @@ public class EnemySpawner : MonoBehaviour
 
     private void GetSpawnFrequency()
     {
-        if (Time.deltaTime < 20)
+        if (Time.time < 20)
         {
             _spawnRate = 3;
         }
 
-        if (Time.deltaTime >= 20 && Time.deltaTime < 30)
+        if (Time.time >= 20 && Time.time < 30)
         {
             _spawnRate = 2.7f;
         }
 
-        if (Time.deltaTime >= 30 && Time.deltaTime < 40)
+        if (Time.time >= 30 && Time.time < 40)
         {
             _spawnRate = 2.5f;
         }
 
-        if (Time.deltaTime >= 40 && Time.deltaTime < 50)
+        if (Time.time >= 40 && Time.time < 50)
         {
             _spawnRate = 2.2f;
         }
 
-        if (Time.deltaTime >= 50 && Time.deltaTime < 60)
+        if (Time.time >= 50 && Time.time < 60)
         {
             _spawnRate = 2f;
         }
 
-        if (Time.deltaTime >= 60 && Time.deltaTime < 70)
+        if (Time.time >= 60 && Time.time < 70)
         {
             _spawnRate = 1.8f;
         }
     }
-
     private void SpawnRandomEnemy()
     {
         GetSpawnPoint();
@@ -84,13 +76,11 @@ public class EnemySpawner : MonoBehaviour
 
         _counter = Time.time;
     }
-
     private void GetSpawnPoint()
     {
         _newY = Random.Range(42.5f, 63f);
         _spawnPoint = new Vector3(26, _newY, 17);
     }
-
     private void PickEnemy()
     {
         int typeOfEnemy = Random.Range(0, 4);
@@ -114,6 +104,22 @@ public class EnemySpawner : MonoBehaviour
         if (_enemy == null)
         {
             Debug.Log("Enemy Mesh Not Found.");
+        }
+    }
+    public void SpawnExplosion(Vector3 position, string typeOf)
+    {
+        if (typeOf == "Ship")
+        {
+            GameObject explosion = Instantiate(Resources.Load("Explosion_0", typeof(GameObject))) as GameObject;
+            explosion.transform.position = position;
+            Destroy(explosion, 5f);
+        }
+
+        if (typeOf == "Bullet")
+        {
+            GameObject explosion = Instantiate(Resources.Load("BulletExplosion", typeof(GameObject))) as GameObject;
+            explosion.transform.position = position;
+            Destroy(explosion, 5f);
         }
     }
 }
