@@ -471,7 +471,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   score: 0
-  scoreUI: {fileID: 0}
+  scoreUI: {fileID: 1015368992}
   highScoreUI: {fileID: 1015368992}
 --- !u!1 &427356802
 GameObject:
@@ -556,7 +556,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 423183732}
         m_TargetAssemblyTypeName: ScoreDisplay, Assembly-CSharp
         m_MethodName: Reset
         m_Mode: 1
@@ -1616,7 +1616,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: High Score
+  m_text: Current
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: e260aa60ca256ad4eb95ca560dd2e249, type: 2}
   m_sharedMaterial: {fileID: 167867421134546761, guid: e260aa60ca256ad4eb95ca560dd2e249, type: 2}
