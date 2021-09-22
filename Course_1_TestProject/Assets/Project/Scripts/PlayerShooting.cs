@@ -16,11 +16,12 @@ public class PlayerShooting : MonoBehaviour
     {
         _audioHandler = GameObject.Find("AudioHandler").GetComponent<AudioHandler>();
         _pMovement = gameObject.GetComponent<PlayerMovement>();
+
     }
 
     void Update()  
     {
-        if (_pMovement.playerEnabled == true && Input.GetButtonDown("Fire1"))
+        if (_pMovement.playerEnabled == true && Input.GetButtonDown("Fire1") && !PauseMenu.gameIsPaused)
         {
             Shoot();
             _audioHandler.Play("Lazer_1");

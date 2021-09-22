@@ -20,7 +20,7 @@ public class PlayerMovement : MonoBehaviour
 
     void Update()
     {
-        if (playerEnabled)
+        if (playerEnabled && !PauseMenu.gameIsPaused)
         {
             moveInput = new Vector3(Input.GetAxis("Horizontal"), Input.GetAxis("Vertical"), 0f);
             moveVelocity = moveInput * moveSpeed;
