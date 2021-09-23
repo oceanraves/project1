@@ -29,7 +29,7 @@ public class EnemySpawner : MonoBehaviour
             SpawnRandomEnemy();
         }
 
-        Debug.Log("Spawnrate: " + _spawnRate);
+        //Debug.Log("Spawnrate: " + _spawnRate);
     }
 
     private void GetSpawnFrequency()
