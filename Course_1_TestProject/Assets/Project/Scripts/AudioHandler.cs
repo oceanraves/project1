@@ -36,6 +36,7 @@ public class AudioHandler : MonoBehaviour
         {
             AudioListener.volume = 0f;
         }
+        Play("Music_Level_1");
     }
 
     void Update()
@@ -56,7 +57,6 @@ public class AudioHandler : MonoBehaviour
         }
         s.source.Play();
     }
-
 
     private void MuteAudio()
     {

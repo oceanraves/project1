@@ -35,6 +35,7 @@ public class Enemy02shooting : MonoBehaviour
         {
             GameObject eBullet = Instantiate(enemyBullet, firePoint.position, firePoint.rotation);
             Rigidbody rb = eBullet.GetComponent<Rigidbody>();
+            eBullet.GetComponent<Bullet>().fromPlayer = false; //tags enemy bullet
             rb.AddForce(firePoint.right * bulletForce, ForceMode.Impulse);
             nextFire = Time.time + fireRate;
         }

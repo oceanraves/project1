@@ -9,9 +9,9 @@ EditorBuildSettings:
     path: Assets/Project/Scenes/MainMenu.unity
     guid: b16b8e21b16965049ad314f43cb74f57
   - enabled: 1
-    path: Assets/Project/Scenes/Level_1(Marika) - Copy.unity
-    guid: 1d253dc77dd24ef42bd157b6e67cb75d
-  - enabled: 1
     path: Assets/Project/Scenes/Level_1(Samuel).unity
     guid: 9fc0d4010bbf28b4594072e72b8655ab
+  - enabled: 0
+    path: Assets/Project/Scenes/Level_1(Marika) - Copy.unity
+    guid: 1d253dc77dd24ef42bd157b6e67cb75d
   m_configObjects: {}

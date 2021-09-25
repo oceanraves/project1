@@ -4,17 +4,20 @@ using UnityEngine;
 
 public class InputHandler : MonoBehaviour
 {
-    private bool _isPaused = false;
+    public bool _isPaused = false;
     private AudioHandler _audioHandler;
     private PlayerMovement _playerMovement;
     private PlayerShooting _playerShooting;
     Vector3 moveInput;
+    private InputHandler _inputHandler;
+
 
     void Start()
     {
         _audioHandler = GameObject.Find("AudioHandler").GetComponent<AudioHandler>();
         _playerMovement = GameObject.Find("TEST_Player_Spaceship Variant").GetComponent<PlayerMovement>();
         _playerShooting = GameObject.Find("TEST_Player_Spaceship Variant").GetComponent<PlayerShooting>();
+        _inputHandler = GameObject.Find("InputHandler").GetComponent<InputHandler>();
     }
     void Update()
     {
@@ -27,7 +30,7 @@ public class InputHandler : MonoBehaviour
         }
 
         //GET PLAYER SHOOTING INPUT
-        if (_playerMovement.playerEnabled == true && Input.GetButtonDown("Fire1"))
+        if (_playerMovement.playerEnabled == true && Input.GetButtonDown("Fire1") && !_inputHandler._isPaused)
         {
             _playerShooting.Shoot();
             _audioHandler.Play("Lazer_1");

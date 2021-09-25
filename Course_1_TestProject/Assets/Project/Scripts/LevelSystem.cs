@@ -32,19 +32,13 @@ public class LevelSystem : MonoBehaviour
     {
         if (Time.time >= 10)
         {
-            Debug.Log("#1");
             if (_lastTime != 0)
             {
-                Debug.Log("#2");
-
                 if (Time.time >= (_lastTime + 10))
                 {
-                    Debug.Log("#3");
-
                     NextLevel();
                 }
             }
-            Debug.Log("#0");
 
             if (_switch)
             {

@@ -35,13 +35,13 @@ public class PlayerCollision : MonoBehaviour
 
             if (!_isRed)
             {
-                ChangeColor();
+                //ChangeColor();
             }
         }
 
         if (!_isRed)
         {
-            ChangeColor();
+            //ChangeColor();
         }
         Destroy(collision.gameObject);
     }

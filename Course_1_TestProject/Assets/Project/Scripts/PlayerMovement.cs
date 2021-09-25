@@ -13,14 +13,21 @@ public class PlayerMovement : MonoBehaviour
 
     public bool playerEnabled = true;
 
+    private InputHandler _inputHandler;
+    private static bool _gameIsPaused;
+
+
     void Start()
     {
-        myRigidbody = GetComponent<Rigidbody>();        
+        myRigidbody = GetComponent<Rigidbody>();
+        _inputHandler = GameObject.Find("InputHandler").GetComponent<InputHandler>();
+        _gameIsPaused = _inputHandler._isPaused;
+
     }
 
     void Update()
     {
-        if (playerEnabled && !PauseMenu.gameIsPaused)
+        if (playerEnabled && !_inputHandler._isPaused)
         {
             moveVelocity = moveInput * moveSpeed;
             Look();

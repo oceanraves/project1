@@ -18,7 +18,7 @@ public class HealthHandler : MonoBehaviour
     private EnemySpawner _enemySpawner;
     void Start()
     {
-        _playerHealth = 1;
+        _playerHealth = 10;
         _bulletDamage = 1;
 
         _gameMaster = GameObject.Find("GameMaster").GetComponent<GameMaster>();
@@ -91,7 +91,7 @@ public class HealthHandler : MonoBehaviour
     }
     public void Respawn()
     {
-        _playerHealth = 1;
+        _playerHealth = 10;
         _healthBar.SetHealth(_playerHealth);
         _pMovement.playerEnabled = true;
     }

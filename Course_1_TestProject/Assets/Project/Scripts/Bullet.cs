@@ -7,10 +7,13 @@ public class Bullet : MonoBehaviour
     public int damage = 1;
     public bool fromPlayer;
     private AudioHandler _audioHandler;
+    private ExplosionSpawner _explosionSpawner;
 
     private void Start()
     {
         _audioHandler = GameObject.Find("AudioHandler").GetComponent<AudioHandler>();
+        _explosionSpawner = GameObject.Find("ExplosionSpawner").GetComponent<ExplosionSpawner>();
+
     }
     private void OnTriggerEnter(Collider boundary)
     {
@@ -21,10 +24,10 @@ public class Bullet : MonoBehaviour
 
         if (boundary.gameObject.tag == "Projectile")
         {
+            _audioHandler.Play("LazerExplode");
             GameObject bullet = gameObject;
             ExplosionSpawner explosionSpawner = GameObject.Find("ExplosionSpawner").GetComponent<ExplosionSpawner>();
             explosionSpawner.SpawnExplosion(bullet.transform.position, "Bullet");
-            _audioHandler.Play("LazerExplode");
 
             Destroy(gameObject);
         }

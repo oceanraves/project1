@@ -5,6 +5,8 @@ using UnityEngine;
 public class HomingMisslie : MonoBehaviour
 {
 
+
+
     Transform target;
     public Rigidbody rb; 
     
@@ -16,17 +18,16 @@ public class HomingMisslie : MonoBehaviour
     public int damage = 1;
     public bool fromPlayer;
     private AudioHandler _audioHandler;
+    private ExplosionSpawner _explosionSpawner;
 
-
-    // Start is called before the first frame update
     void Start()
     {
         target = GameObject.FindGameObjectWithTag("Player").transform;
         bulletLocalTransform = GetComponent<Transform>();
         _audioHandler = GameObject.Find("AudioHandler").GetComponent<AudioHandler>();
+        _explosionSpawner = GameObject.Find("ExplosionSpawner").GetComponent<ExplosionSpawner>();
     }
 
-    // Update is called once per frame
     void FixedUpdate()
     {
         rb.velocity = bulletLocalTransform.forward * speed;
@@ -43,10 +44,8 @@ public class HomingMisslie : MonoBehaviour
 
         if (boundary.gameObject.tag == "Projectile")
         {
-            GameObject bullet = gameObject;
-            EnemySpawner enemySpawner = GameObject.Find("EnemySpawner").GetComponent<EnemySpawner>();
-            enemySpawner.SpawnExplosion(bullet.transform.position, "Bullet");
             _audioHandler.Play("LazerExplode");
+            _explosionSpawner.SpawnExplosion(gameObject.transform.position, "Bullet");
 
             Destroy(gameObject);
         }
