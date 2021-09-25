@@ -8,32 +8,60 @@ public class EnemySpawner : MonoBehaviour
     private GameObject _clone;
     private Vector3 _spawnPoint;
     private float _newY;
-    public float spawnRate;
-    private float _counter;
-    private Vector3 _lastSpawnPoint;
-    private bool _initSpawn = true;
-    public bool spawn = true;
-    private GameMaster _gameMaster;
+    private int _lastRate;
 
-    private void Start()
-    {
-        _gameMaster = GameObject.Find("GameMaster").GetComponent<GameMaster>();
-        spawnRate = _gameMaster.spawnRate;
-    }
+    //[SerializeField]
+    private float _spawnRate;
+
+    private float _counter;
 
 
     void Update()
     {
-        //TEMP FUNCTION FOR TESTING
         if (Input.GetKeyDown(KeyCode.Return))
         {
             SpawnRandomEnemy();
         }
 
-        if (spawn && Time.time > _counter + spawnRate)
+        if (Time.time > _counter + _spawnRate)
         {
-            //GetSpawnFrequency();
+            GetSpawnFrequency();
             SpawnRandomEnemy();
+        }
+
+        //Debug.Log("Spawnrate: " + _spawnRate);
+    }
+
+    private void GetSpawnFrequency()
+    {
+        if (Time.time < 20)
+        {
+            _spawnRate = 3;
+        }
+
+        if (Time.time >= 20 && Time.time < 30)
+        {
+            _spawnRate = 2.7f;
+        }
+
+        if (Time.time >= 30 && Time.time < 40)
+        {
+            _spawnRate = 2.5f;
+        }
+
+        if (Time.time >= 40 && Time.time < 50)
+        {
+            _spawnRate = 2.2f;
+        }
+
+        if (Time.time >= 50 && Time.time < 60)
+        {
+            _spawnRate = 2f;
+        }
+
+        if (Time.time >= 60 && Time.time < 70)
+        {
+            _spawnRate = 1.8f;
         }
     }
     private void SpawnRandomEnemy()
@@ -47,35 +75,11 @@ public class EnemySpawner : MonoBehaviour
         _clone.GetComponent<EnemyMovement>().SetMoveSpeed(5f);
 
         _counter = Time.time;
-        _initSpawn = false;
     }
     private void GetSpawnPoint()
     {
-        if (_initSpawn)
-        {
-            _newY = Random.Range(42.5f, 63f);
-        }
-        else
-        {
-            float lastPlus = _lastSpawnPoint.y + 5f;
-            float lastMinus = _lastSpawnPoint.y - 5f;
-
-            float nextOneMin = Random.Range(42f, lastMinus);
-            float nextOneMax = Random.Range(lastPlus, 64f);
-            //
-            int upOrDown = Random.Range(0, 2);
-            //
-            if (upOrDown == 0)
-            {
-                _newY = nextOneMin;
-            }
-            else
-            {
-                _newY = nextOneMax;
-            }
-        }
+        _newY = Random.Range(42.5f, 63f);
         _spawnPoint = new Vector3(26, _newY, 17);
-        _lastSpawnPoint = _spawnPoint;
     }
     private void PickEnemy()
     {
@@ -100,6 +104,22 @@ public class EnemySpawner : MonoBehaviour
         if (_enemy == null)
         {
             Debug.Log("Enemy Mesh Not Found.");
+        }
+    }
+    public void SpawnExplosion(Vector3 position, string typeOf)
+    {
+        if (typeOf == "Ship")
+        {
+            GameObject explosion = Instantiate(Resources.Load("Explosion_0", typeof(GameObject))) as GameObject;
+            explosion.transform.position = position;
+            Destroy(explosion, 5f);
+        }
+
+        if (typeOf == "Bullet")
+        {
+            GameObject explosion = Instantiate(Resources.Load("BulletExplosion", typeof(GameObject))) as GameObject;
+            explosion.transform.position = position;
+            Destroy(explosion, 5f);
         }
     }
 }

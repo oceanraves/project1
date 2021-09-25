@@ -170,8 +170,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   enemyBullet: {fileID: 1764615526739776748, guid: 511805d31e522464bbb33824853373b7, type: 3}
   firePoint: {fileID: 4160505729202338124}
-  bulletForce: 20
-  fireRate: 1.5
+  bulletForce: 30
+  fireRate: 2
   isDead: 0
 --- !u!1 &5004014968769036366
 GameObject:

@@ -20,7 +20,7 @@ public class PlayerMovement : MonoBehaviour
 
     void Update()
     {
-        if (playerEnabled)
+        if (playerEnabled && !PauseMenu.gameIsPaused)
         {
             moveVelocity = moveInput * moveSpeed;
             Look();
