@@ -22,10 +22,14 @@ public class PlayerMovement : MonoBehaviour
     {
         if (playerEnabled)
         {
-            moveInput = new Vector3(Input.GetAxis("Horizontal"), Input.GetAxis("Vertical"), 0f);
             moveVelocity = moveInput * moveSpeed;
             Look();
         }
+    }
+
+    public void Move(Vector3 movement)
+    {
+        moveInput = movement;
     }
 
     private void FixedUpdate()
@@ -41,7 +45,6 @@ public class PlayerMovement : MonoBehaviour
     private void Look()
     {
         Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
-
         Plane plane = new Plane(Vector3.back, Vector3.zero);
 
         if (plane.Raycast(ray, out float distance))

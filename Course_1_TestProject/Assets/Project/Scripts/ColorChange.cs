@@ -6,18 +6,14 @@ public class ColorChange : MonoBehaviour
 {
     private Color _originalMat;
 
-    public void StoreColor(Material[] mats)
+    public void StoreColor(Material[] mats, Color color, int material)
     {
-        //mats = rend.materials;
         _originalMat = mats[1].color;
-
-        mats[1].color = new Color(224, 137, 9, 255);
-
+        mats[material].color = color;
     }
 
-    public void ColorChangeBack(Material[] mats)
+    public void ColorChangeBack(Material[] mats, int material)
     {
-        //mats = rend.materials;
-        mats[1].color = _originalMat;
+        mats[material].color = _originalMat;
     }
 }

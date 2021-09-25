@@ -9,12 +9,6 @@ public class EnemyMovement : MonoBehaviour
 
     [SerializeField]
     float _moveSpeed;
-
-    void Start()
-    {
-    }
-
-    //Gets Speed From "EnemySpawner"
     public float SetMoveSpeed(float speed)
     {
         _moveSpeed = speed;

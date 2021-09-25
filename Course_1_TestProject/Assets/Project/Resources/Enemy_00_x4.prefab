@@ -4920,7 +4920,7 @@ BoxCollider:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2421211450020728838}
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
   m_Size: {x: 0.01, y: 0.13, z: 1}
@@ -4933,7 +4933,7 @@ BoxCollider:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2421211450020728838}
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
   m_Size: {x: 0.13, y: 0.01, z: 1}
@@ -5206,3 +5206,4 @@ MonoBehaviour:
   firePoint4: {fileID: 8489273226125975329}
   bulletForce: 20
   fireRate: 1
+  isDead: 0

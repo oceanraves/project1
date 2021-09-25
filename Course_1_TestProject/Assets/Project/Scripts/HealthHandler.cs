@@ -6,7 +6,6 @@ public class HealthHandler : MonoBehaviour
 {
     private int _playerHealth;
     private int _bulletDamage;
-    private int _playerDamage;
     private int _playerLives;
 
     private GameMaster _gameMaster;
@@ -15,21 +14,27 @@ public class HealthHandler : MonoBehaviour
     private PlayerMovement _pMovement;
     private HealthBar _healthBar;
     private LivesDisplay _lDisplay;
-
+    private LevelSystem _levelSystem;
+    private EnemySpawner _enemySpawner;
     void Start()
     {
-        _playerHealth = 10;
+        _playerHealth = 1;
         _bulletDamage = 1;
-        _playerLives = 3;
 
-        //_gameMaster = GameObject.Find("GameMaster").GetComponent<GameMaster>();
+        _gameMaster = GameObject.Find("GameMaster").GetComponent<GameMaster>();
         _sceneHandler = GameObject.Find("SceneHandler").GetComponent<SceneHandler>();
         _player = GameObject.Find("TEST_Player_Spaceship Variant");
         _pMovement = _player.GetComponent<PlayerMovement>();
         _healthBar = GameObject.Find("HealthBar").GetComponent<HealthBar>();
         _lDisplay = GameObject.Find("Lives").GetComponent<LivesDisplay>();
+        _levelSystem = GameObject.Find("LevelSystem").GetComponent<LevelSystem>();
+        _enemySpawner = GameObject.Find("EnemySpawner").GetComponent<EnemySpawner>();
     }
 
+    public void Update()
+    {
+        _playerLives = _gameMaster.lives;
+    }
     //GETS ENEMY TYPE FROM "PlayerCollision" CLASS.
     public void PlayerHit(int enemyType)
     {
@@ -58,9 +63,10 @@ public class HealthHandler : MonoBehaviour
         {
             _playerLives -= 1;
             _lDisplay.SetLives(_playerLives.ToString());
+            _gameMaster.Lives(_playerLives);
+
             if (_playerLives <= 0)
             {
-                Debug.Log("GAME OVEAH");
                 GameOver();
             } else
             {
@@ -68,12 +74,11 @@ public class HealthHandler : MonoBehaviour
             }
         }
     }
-
     private void PlayerDeath()
     {
         //INSTANTIATE EXPLOSION
-        EnemySpawner enemySpawner = GameObject.Find("EnemySpawner").GetComponent<EnemySpawner>();
-        enemySpawner.SpawnExplosion(_player.transform.position, "Ship");
+        ExplosionSpawner explosionSpawner = GameObject.Find("ExplosionSpawner").GetComponent<ExplosionSpawner>();
+        explosionSpawner.SpawnExplosion(_player.transform.position, "Ship");
         //---------------------
 
         //PLAY DEATH ANIMATION
@@ -86,16 +91,21 @@ public class HealthHandler : MonoBehaviour
     }
     public void Respawn()
     {
-        _playerHealth = 10;
+        _playerHealth = 1;
         _healthBar.SetHealth(_playerHealth);
         _pMovement.playerEnabled = true;
     }
     private void GameOver()
     {
-        Debug.Log("GAME OVEAH");
-        //CALL UI OVERLAY (GAME OVER SCREEN, RESTART OR QUIT OPTIONS)
-        _gameMaster.lastCheckPointPos = _player.transform.position;
         _lDisplay.SetLives(_playerLives.ToString());
+
+        int _lvl = _levelSystem.level;
+        _gameMaster.Level(_lvl);
+        float spawnRate = _levelSystem.level;
+        _gameMaster.SpawnRate(_enemySpawner.spawnRate);
+        _gameMaster.Lives(3);
+        _gameMaster.lastCheckPointPos = _player.transform.position;
+
         _sceneHandler.LoadLevel1();
     }
 }

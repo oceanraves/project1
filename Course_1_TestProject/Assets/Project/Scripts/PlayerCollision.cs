@@ -5,44 +5,55 @@ using UnityEngine;
 public class PlayerCollision : MonoBehaviour
 {
     private HealthHandler _healthHandler;
+    private Renderer _rend;
+    private Material[] _materials;
+    private ColorChange _colorChange;
+    private bool _isRed = false;
+
     void Start()
     {
         _healthHandler = GameObject.Find("HealthHandler").GetComponent<HealthHandler>();
+        _colorChange = GameObject.Find("ColorChange").GetComponent<ColorChange>();
+        _rend = gameObject.GetComponent<Renderer>();
+        _materials = _rend.materials;
     }
-
-    private void OnCollisionEnter(Collision collision)
-    {
-        //ENEMY COLLISION BEHAVIOUR
-        if (collision.collider.tag == "Enemy")
-        {
-            _healthHandler.PlayerHit(2);
-            GameObject explosion = Instantiate(Resources.Load("Explosion_0", typeof(GameObject))) as GameObject;
-            explosion.transform.position = collision.collider.transform.position;
-            Destroy(collision.gameObject);
-        }
-    }
-
     private void OnTriggerEnter(Collider collision)
-    {
+    {    
+        //ENEMY BULLET COLLISION BEHAVIOUR
         if (collision.gameObject.tag == "Projectile")
         {
             _healthHandler.PlayerHit(0);
         }
 
-
-        //ADD PLAY HURT ANIMATION
-        if (collision.gameObject.tag == "Bullet_00")
-        {
-            _healthHandler.PlayerHit(0);
-        }
-        if (collision.gameObject.tag == "Bullet_01")
-        {
-            _healthHandler.PlayerHit(1);
-        }
-        if (collision.gameObject.tag == "Bullet_02")
+        //ENEMY COLLISION BEHAVIOUR
+        if (collision.gameObject.tag == "Enemy")
         {
             _healthHandler.PlayerHit(2);
+            GameObject explosion = Instantiate(Resources.Load("Explosion_0", typeof(GameObject))) as GameObject;
+            explosion.transform.position = collision.gameObject.transform.position;
+            Destroy(collision.gameObject);
+
+            if (!_isRed)
+            {
+                ChangeColor();
+            }
+        }
+
+        if (!_isRed)
+        {
+            ChangeColor();
         }
         Destroy(collision.gameObject);
+    }
+    private void ChangeColor()
+    {
+        _isRed = true;
+        _colorChange.StoreColor(_materials, Color.red, 2);
+        Invoke("ChangeBack", 0.1f);
+    }
+    private void ChangeBack()
+    {
+        _colorChange.ColorChangeBack(_materials, 2);
+        _isRed = false;
     }
 }

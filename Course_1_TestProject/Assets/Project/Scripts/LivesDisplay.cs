@@ -7,11 +7,6 @@ public class LivesDisplay : MonoBehaviour
 {
     public Text text;
 
-    public void Start()
-    {
-        //text.text = "3".ToString();
-    }
-
     public void SetLives(string lives)
     {
         text.text = lives;

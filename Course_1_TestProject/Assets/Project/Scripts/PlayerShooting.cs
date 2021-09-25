@@ -7,27 +7,9 @@ public class PlayerShooting : MonoBehaviour
     public Transform firePoint;
     public Transform firePoint2;
     public GameObject bulletPrefab;
-    private AudioHandler _audioHandler;
-    private PlayerMovement _pMovement;
-
     public float bulletForce;
 
-    void Start()
-    {
-        _audioHandler = GameObject.Find("AudioHandler").GetComponent<AudioHandler>();
-        _pMovement = gameObject.GetComponent<PlayerMovement>();
-    }
-
-    void Update()  
-    {
-        if (_pMovement.playerEnabled == true && Input.GetButtonDown("Fire1"))
-        {
-            Shoot();
-            _audioHandler.Play("Lazer_1");
-        }
-    }
-
-    void Shoot()
+    public void Shoot()
     {
         GameObject bullet =Instantiate(bulletPrefab, firePoint.position, firePoint.rotation);
         GameObject bullet1= Instantiate(bulletPrefab, firePoint2.position, firePoint2.rotation);
