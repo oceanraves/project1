@@ -4,21 +4,19 @@ using UnityEngine;
 
 public class Health_PickUp : MonoBehaviour
 {
-    HealthHandler _playerHealth;
-
-    public int healthBonus = 2;
+    private HealthHandler _healthHandler;
 
     private void Awake()
     {
-        _playerHealth = FindObjectOfType<HealthHandler>();
+        _healthHandler = FindObjectOfType<HealthHandler>();
     }
 
     void OnTriggerEnter(Collider collider)
     {
-        if (_playerHealth._playerHealth < _playerHealth._maxHealth && collider.CompareTag("Player"))
+        if (_healthHandler._playerHealth < _healthHandler._maxHealth && collider.CompareTag("Player"))
         {
-           
-            _playerHealth._playerHealth = _playerHealth._playerHealth + healthBonus; 
+            _healthHandler.PlayerHealthUp();
+            //_healthHandler._playerHealth = _healthHandler._playerHealth + healthBonus;     
         }
     }
 }

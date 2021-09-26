@@ -8,6 +8,7 @@ public class HealthHandler : MonoBehaviour
     public int _maxHealth;
     private int _bulletDamage;
     private int _playerLives;
+    public int healthBonus = 2;
 
     private GameMaster _gameMaster;
     private SceneHandler _sceneHandler;
@@ -17,11 +18,13 @@ public class HealthHandler : MonoBehaviour
     private LivesDisplay _lDisplay;
     private LevelSystem _levelSystem;
     private EnemySpawner _enemySpawner;
+    private Health_PickUp _healthPickup;
     void Start()
     {
         _playerHealth = 10;
         _maxHealth = 10; 
         _bulletDamage = 1;
+
 
         _gameMaster = GameObject.Find("GameMaster").GetComponent<GameMaster>();
         _sceneHandler = GameObject.Find("SceneHandler").GetComponent<SceneHandler>();
@@ -76,6 +79,14 @@ public class HealthHandler : MonoBehaviour
             }
         }
     }
+
+    public void PlayerHealthUp()
+    {
+        _playerHealth += healthBonus;
+        _healthBar.SetHealth(_playerHealth);
+
+    }
+
     private void PlayerDeath()
     {
         //INSTANTIATE EXPLOSION
