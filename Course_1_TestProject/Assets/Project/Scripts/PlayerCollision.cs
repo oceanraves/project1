@@ -9,9 +9,10 @@ public class PlayerCollision : MonoBehaviour
     private Material[] _materials;
     private ColorChange _colorChange;
     private bool _isRed = false;
-
+    private PlayerMovement _playerMovement;
     void Start()
     {
+        _playerMovement = GameObject.Find("TEST_Player_Spaceship Variant").GetComponent<PlayerMovement>();
         _healthHandler = GameObject.Find("HealthHandler").GetComponent<HealthHandler>();
         _colorChange = GameObject.Find("ColorChange").GetComponent<ColorChange>();
         _rend = gameObject.GetComponent<Renderer>();
@@ -19,31 +20,24 @@ public class PlayerCollision : MonoBehaviour
     }
     private void OnTriggerEnter(Collider collision)
     {    
-        //ENEMY BULLET COLLISION BEHAVIOUR
-        if (collision.gameObject.tag == "Projectile")
-        {
-            _healthHandler.PlayerHit(0);
-        }
-
-        //ENEMY COLLISION BEHAVIOUR
-        if (collision.gameObject.tag == "Enemy")
-        {
-            _healthHandler.PlayerHit(2);
-            GameObject explosion = Instantiate(Resources.Load("Explosion_0", typeof(GameObject))) as GameObject;
-            explosion.transform.position = collision.gameObject.transform.position;
-            Destroy(collision.gameObject);
-
-            if (!_isRed)
+        if(_playerMovement.playerEnabled)
+        {         
+            //ENEMY BULLET COLLISION BEHAVIOUR
+            if (collision.gameObject.tag == "Projectile")
             {
-                //ChangeColor();
+                _healthHandler.PlayerHit(0);
+            }
+            //ENEMY COLLISION BEHAVIOUR
+            if (collision.gameObject.tag == "Enemy")
+            {
+                _healthHandler.PlayerHit(2);
+                GameObject explosion = Instantiate(Resources.Load("Explosion_0", typeof(GameObject))) as GameObject;
+                explosion.transform.position = collision.gameObject.transform.position;
+                Destroy(collision.gameObject);
             }
         }
-
-        if (!_isRed)
-        {
-            //ChangeColor();
-        }
         Destroy(collision.gameObject);
+
     }
     private void ChangeColor()
     {

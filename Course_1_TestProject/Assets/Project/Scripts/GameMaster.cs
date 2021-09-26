@@ -20,6 +20,7 @@ public class GameMaster : MonoBehaviour
     public float spawnRate;
     public bool firstLevel = true;
     public bool leveled = false;
+    public int score;
 
 
     private void Awake()
@@ -35,6 +36,7 @@ public class GameMaster : MonoBehaviour
         lvl = 1;
         lives = 3;
         spawnRate = 3f;
+        score = 0;
     }
 
     public void Lives(int playerLives)
@@ -50,6 +52,12 @@ public class GameMaster : MonoBehaviour
     {
         lvl = level;        
     }
+
+    public void Score(int scoreIn)
+    {
+        score = scoreIn;
+    }
+
     void Start()
     {
         _hHandler = GameObject.Find("HealthHandler").GetComponent<HealthHandler>();

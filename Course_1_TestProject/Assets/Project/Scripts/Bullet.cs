@@ -24,7 +24,7 @@ public class Bullet : MonoBehaviour
 
         if (boundary.gameObject.tag == "Projectile")
         {
-            _audioHandler.Play("LazerExplode");
+            //_audioHandler.Play("LazerExplode");
             GameObject bullet = gameObject;
             ExplosionSpawner explosionSpawner = GameObject.Find("ExplosionSpawner").GetComponent<ExplosionSpawner>();
             explosionSpawner.SpawnExplosion(bullet.transform.position, "Bullet");

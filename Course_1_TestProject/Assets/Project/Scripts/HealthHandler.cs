@@ -19,6 +19,7 @@ public class HealthHandler : MonoBehaviour
     private LevelSystem _levelSystem;
     private EnemySpawner _enemySpawner;
     private Health_PickUp _healthPickup;
+    private ScoreDisplay _scoreDisplay;
     void Start()
     {
         _playerHealth = 10;
@@ -34,6 +35,7 @@ public class HealthHandler : MonoBehaviour
         _lDisplay = GameObject.Find("Lives").GetComponent<LivesDisplay>();
         _levelSystem = GameObject.Find("LevelSystem").GetComponent<LevelSystem>();
         _enemySpawner = GameObject.Find("EnemySpawner").GetComponent<EnemySpawner>();
+        _scoreDisplay = GameObject.Find("ScoreDisplay").GetComponent<ScoreDisplay>();
     }
 
     public void Update()
@@ -118,6 +120,8 @@ public class HealthHandler : MonoBehaviour
         _gameMaster.SpawnRate(_enemySpawner.spawnRate);
         _gameMaster.Lives(3);
         _gameMaster.lastCheckPointPos = _player.transform.position;
+        _gameMaster.Score(_scoreDisplay.score);
+
 
         _sceneHandler.LoadLevel1();
     }

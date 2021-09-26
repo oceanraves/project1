@@ -10,10 +10,14 @@ public class ScoreDisplay : MonoBehaviour
     public int score;
     public Text scoreUI;
     public Text highScoreUI;
+    private GameMaster _gameMaster;
 
     // Start is called before the first frame update
     void Start()
     {
+        _gameMaster = GameObject.Find("GameMaster").GetComponent<GameMaster>();
+        score = _gameMaster.score;
+
         scoreUI.text = "Score: " + score.ToString();
         highScoreUI.text = "High Score: " + PlayerPrefs.GetInt("HighScore", 0).ToString();
     }
