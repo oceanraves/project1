@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine.Audio;
+using UnityEngine.SceneManagement;
 using UnityEngine;
 
 public class AudioHandler : MonoBehaviour
@@ -31,12 +32,25 @@ public class AudioHandler : MonoBehaviour
 
 
     void Start()
-    {        
-        if (_isMuted)
+    {
+        Scene currentScene = SceneManager.GetActiveScene(); 
+        if (currentScene.name == "Level_1(Samuel)")
         {
-            AudioListener.volume = 0f;
+            if (_isMuted)
+            {
+                AudioListener.volume = 0f;
+            }
+            Play("Music_Level_1");
         }
-        Play("Music_Level_1");
+        
+        if (currentScene.name== "MainMenu")
+        {
+            if (_isMuted)
+            {
+                AudioListener.volume = 0f;
+            }
+            Play("Music_Main_Menu");
+        }
     }
 
     void Update()
