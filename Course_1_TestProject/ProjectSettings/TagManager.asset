@@ -12,6 +12,7 @@ TagManager:
   - Bullet_01
   - Bullet_02
   - BoundaryPlayer
+  - PowerUp
   layers:
   - Default
   - TransparentFX

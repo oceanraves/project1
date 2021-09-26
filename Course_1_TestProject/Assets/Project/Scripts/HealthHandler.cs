@@ -4,7 +4,8 @@ using UnityEngine;
 
 public class HealthHandler : MonoBehaviour
 {
-    private int _playerHealth;
+    public int _playerHealth;
+    public int _maxHealth;
     private int _bulletDamage;
     private int _playerLives;
 
@@ -19,6 +20,7 @@ public class HealthHandler : MonoBehaviour
     void Start()
     {
         _playerHealth = 10;
+        _maxHealth = 10; 
         _bulletDamage = 1;
 
         _gameMaster = GameObject.Find("GameMaster").GetComponent<GameMaster>();

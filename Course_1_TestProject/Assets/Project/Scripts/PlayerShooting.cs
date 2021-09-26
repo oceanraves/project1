@@ -7,7 +7,9 @@ public class PlayerShooting : MonoBehaviour
     public Transform firePoint;
     public Transform firePoint2;
     public GameObject bulletPrefab;
-    public float bulletForce;
+    public float bulletForce = 50;
+    public float forceBonus = 50f;
+    public float duration = 4f;
 
     public void Shoot()
     {
@@ -21,4 +23,21 @@ public class PlayerShooting : MonoBehaviour
         rb.AddForce(firePoint.right * bulletForce, ForceMode.Impulse);
         rb1.AddForce(firePoint.right * bulletForce, ForceMode.Impulse);
     }
+
+    private void OnTriggerEnter(Collider other)
+    {
+       if (other.CompareTag("PowerUp"))
+        {
+            StartCoroutine(Pickup());
+        }
+    }
+    IEnumerator Pickup()
+    {
+        bulletForce += forceBonus;
+        Debug.Log("Start");
+        yield return new WaitForSeconds(duration);
+        Debug.Log("Stop");
+        bulletForce -= forceBonus;
+    }
 }
+
