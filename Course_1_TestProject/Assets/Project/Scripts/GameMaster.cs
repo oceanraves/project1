@@ -50,10 +50,12 @@ public class GameMaster : MonoBehaviour
         lives = playerLives;
     }
 
+    /*
     public void SpawnRate(float getSpawnRate)
     {
         spawnRate = getSpawnRate;
     }
+    */
     public void Level(int level)
     {
         lvl = level;        

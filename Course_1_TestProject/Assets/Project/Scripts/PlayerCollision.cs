@@ -8,7 +8,7 @@ public class PlayerCollision : MonoBehaviour
     private Renderer _rend;
     private Material[] _materials;
     private ColorChange _colorChange;
-    private bool _isRed = false;
+    //private bool _isRed = false;
     private PlayerMovement _playerMovement;
     void Start()
     {
@@ -41,13 +41,13 @@ public class PlayerCollision : MonoBehaviour
     }
     private void ChangeColor()
     {
-        _isRed = true;
+        //_isRed = true;
         _colorChange.StoreColor(_materials, Color.red, 2);
         Invoke("ChangeBack", 0.1f);
     }
     private void ChangeBack()
     {
         _colorChange.ColorChangeBack(_materials, 2);
-        _isRed = false;
+        //_isRed = false;
     }
 }

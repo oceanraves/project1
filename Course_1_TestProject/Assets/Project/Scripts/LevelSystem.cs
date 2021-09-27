@@ -23,14 +23,16 @@ public class LevelSystem : MonoBehaviour
     private void NextLevel()
     {
         level += 1;
+        /*
         _enemySpawner.spawnRate -= 0.3f;
 
         if (_enemySpawner.spawnRate <= 0f)
         {
             _enemySpawner.spawnRate = 0.1f;
         }        
-
-        _gameMaster.SpawnRate(_enemySpawner.spawnRate);
+        */
+        _enemySpawner.ChangeSpawnRate();
+        //_gameMaster.SpawnRate(_enemySpawner.spawnRate);
         _lDisplay.SetLevel(level.ToString());
         _switch = true;
     }

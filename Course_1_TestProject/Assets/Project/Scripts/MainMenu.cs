@@ -13,7 +13,6 @@ public class MainMenu : MonoBehaviour
     private void Start()
     {
         _gameMaster = GameObject.Find("GameMaster").GetComponent<GameMaster>();
-
         if (SceneManager.GetActiveScene().buildIndex == 1)
         {
             GetInputHandler();
@@ -26,8 +25,6 @@ public class MainMenu : MonoBehaviour
     }
     public void PlayGame()
     {
-        //_gameMaster.ResetAll();
-
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
         Time.timeScale = 1f;
         _gameIsPaused = false; 
@@ -38,5 +35,4 @@ public class MainMenu : MonoBehaviour
         Debug.Log("Quit");
         Application.Quit();
     }
-
 }

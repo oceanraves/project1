@@ -35,9 +35,9 @@ public class PlayerShooting : MonoBehaviour
     IEnumerator Pickup()
     {
         bulletForce += forceBonus;
-        Debug.Log("Start");
+        //Debug.Log("Start");
         yield return new WaitForSeconds(duration);
-        Debug.Log("Stop");
+        //Debug.Log("Stop");
         bulletForce -= forceBonus;
     }
 }

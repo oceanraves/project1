@@ -4,7 +4,8 @@ using UnityEngine;
 
 public class EnemySpawner : MonoBehaviour
 {
-    private string _enemy;
+    private string _object;
+    private int _lastObject;
     private GameObject _clone;
     private Vector3 _spawnPoint;
     private float _newY;
@@ -14,6 +15,7 @@ public class EnemySpawner : MonoBehaviour
     private bool _initSpawn = true;
     public bool spawn = true;
     private GameMaster _gameMaster;
+    public float tempSpawnrate;
 
     private void Start()
     {
@@ -32,15 +34,29 @@ public class EnemySpawner : MonoBehaviour
 
         if (spawn && Time.time > _counter + spawnRate)
         {
-            //GetSpawnFrequency();
             SpawnRandomEnemy();
         }
     }
+
+    public void ChangeSpawnRate()
+    {
+        spawnRate -= 0.3f;
+
+        if (spawnRate <= 0.7f)
+        {
+            //Debug.Log("Way Too Much");
+            spawnRate = 0.7f;
+        }
+        //spawnRate = tempSpawnrate;
+        _gameMaster.spawnRate = spawnRate;    
+    }
+
+
     private void SpawnRandomEnemy()
     {
         GetSpawnPoint();
-        PickEnemy();
-        _clone = Instantiate(Resources.Load(_enemy, typeof(GameObject))) as GameObject;
+        PickObject();
+        _clone = Instantiate(Resources.Load(_object, typeof(GameObject))) as GameObject;
         _clone.transform.position = _spawnPoint;
 
         _clone.AddComponent<EnemyMovement>();
@@ -77,29 +93,46 @@ public class EnemySpawner : MonoBehaviour
         _spawnPoint = new Vector3(26, _newY, 17);
         _lastSpawnPoint = _spawnPoint;
     }
-    private void PickEnemy()
+    private void PickObject()
     {
-        int typeOfEnemy = Random.Range(0, 4);
+        int typeOfObject = Random.Range(0, 10);
 
-        if (typeOfEnemy == 0)
+        //if (_lastObject >= 8)
+        //{
+        //    PickObject();
+        //}
+
+        if (typeOfObject == 0 || typeOfObject == 1)
         {
-            _enemy = "Enemy_00_x2";
+            _object = "Enemy_00_x2";
         }
-        if (typeOfEnemy == 1)
+        if (typeOfObject == 2 || typeOfObject == 3)
         {
-            _enemy = "Enemy_00_x4";
+            _object = "Enemy_00_x4";
         }
-        if (typeOfEnemy == 2)
+        if (typeOfObject == 4 || typeOfObject == 5)
         {
-            _enemy = "Enemy_01";
+            _object = "Enemy_01";
         }
-        if (typeOfEnemy == 3)
+        if (typeOfObject == 6 || typeOfObject == 7)
         {
-            _enemy = "Enemy_02";
+            _object = "Enemy_02";
         }
-        if (_enemy == null)
+
+        if (typeOfObject == 8)
+        {
+            _object = "Powerups_Bullet";
+        }
+        if (typeOfObject == 9)
+        {
+            _object = "Powerups_New_2";
+        }
+
+        if (_object == null)
         {
             Debug.Log("Enemy Mesh Not Found.");
         }
+
+        //_lastObject = typeOfObject;
     }
 }
