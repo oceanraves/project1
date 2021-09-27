@@ -322,7 +322,7 @@ MonoBehaviour:
   enemyBullet: {fileID: 1764615526739776748, guid: 637c45dabbe8d0f4897d65598a8a4ba2, type: 3}
   firePoint1: {fileID: 3412648108742879499}
   firePoint2: {fileID: 2228565442676713979}
-  bulletForce: 40
+  bulletForce: 20
   fireRate: 1
   isDead: 0
 --- !u!1 &5977870893108795051

@@ -5,6 +5,8 @@ using UnityEngine;
 public class InputHandler : MonoBehaviour
 {
     public bool _isPaused = false;
+    float timer;
+    public float cooldown = 2f;
     private AudioHandler _audioHandler;
     private PlayerMovement _playerMovement;
     private PlayerShooting _playerShooting;
@@ -21,6 +23,8 @@ public class InputHandler : MonoBehaviour
     }
     void Update()
     {
+        timer += Time.deltaTime;
+
         //GET PLAYER MOVEMENT INPUT
         moveInput = new Vector3(Input.GetAxis("Horizontal"), Input.GetAxis("Vertical"), 0f);
 
@@ -30,10 +34,11 @@ public class InputHandler : MonoBehaviour
         }
 
         //GET PLAYER SHOOTING INPUT
-        if (_playerMovement.playerEnabled == true && Input.GetButtonDown("Fire1") && !_inputHandler._isPaused)
+        if (_playerMovement.playerEnabled == true && Input.GetButton("Fire1") && !_inputHandler._isPaused && timer > cooldown)
         {
             _playerShooting.Shoot();
             _audioHandler.Play("Lazer_1");
+            timer = 0.0f;
         }
 
         if (Input.GetKeyDown(KeyCode.Escape))

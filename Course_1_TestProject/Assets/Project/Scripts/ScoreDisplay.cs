@@ -22,7 +22,7 @@ public class ScoreDisplay : MonoBehaviour
         highScoreUI.text = "High Score: " + PlayerPrefs.GetInt("HighScore", 0).ToString();
     }
 
-    // Update is called once per frame
+    
     public void AddScore()
     {
         score = score + hitScore;
