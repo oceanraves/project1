@@ -22,6 +22,7 @@ public class PlayerShooting : MonoBehaviour
         Rigidbody rb1 = bullet1.GetComponent<Rigidbody>();
         rb.AddForce(firePoint.right * bulletForce, ForceMode.Impulse);
         rb1.AddForce(firePoint.right * bulletForce, ForceMode.Impulse);
+
     }
 
     private void OnTriggerEnter(Collider other)
