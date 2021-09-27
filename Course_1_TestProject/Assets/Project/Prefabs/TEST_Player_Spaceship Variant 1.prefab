@@ -70,11 +70,11 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: -7144168956746013219, guid: 96a6afa2fb17093468624ed2ea714802, type: 3}
-  - {fileID: 3822734446446764199, guid: 96a6afa2fb17093468624ed2ea714802, type: 3}
-  - {fileID: 5688677729958933599, guid: 96a6afa2fb17093468624ed2ea714802, type: 3}
-  - {fileID: -1387642531434173553, guid: 96a6afa2fb17093468624ed2ea714802, type: 3}
-  - {fileID: -956404384094264490, guid: 96a6afa2fb17093468624ed2ea714802, type: 3}
+  - {fileID: 2100000, guid: 485323c335b04204aa374924f3b30e9f, type: 2}
+  - {fileID: 2100000, guid: 6177111a4b0d8964c9fd675271157ed6, type: 2}
+  - {fileID: 2100000, guid: e5d3e99bc3ab3bd499c9f729f56b1c59, type: 2}
+  - {fileID: 2100000, guid: d180c208c6eec3b42b4f46dc778375ee, type: 2}
+  - {fileID: 2100000, guid: 485323c335b04204aa374924f3b30e9f, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -156,6 +156,8 @@ MonoBehaviour:
   firePoint2: {fileID: 4565050008990662727}
   bulletPrefab: {fileID: 1764615526739776748, guid: e87e693488cc28b499d0bfcb992a8342, type: 3}
   bulletForce: 50
+  forceBonus: 50
+  duration: 4
 --- !u!114 &4565050008489599419
 MonoBehaviour:
   m_ObjectHideFlags: 0

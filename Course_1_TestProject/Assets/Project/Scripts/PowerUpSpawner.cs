@@ -8,7 +8,7 @@ public class PowerUpSpawner : MonoBehaviour
 
     private float _newY;
     //public bool spawn = true;
-    public float spawnRate = 1f;
+    public float spawnRate = 10f;
     private float _counter;
     private GameObject _clone;
     private Vector3 _spawnPoint;
@@ -55,7 +55,7 @@ public class PowerUpSpawner : MonoBehaviour
         }
         if (typeOfObject == 1)
         {
-            _object = "Powerup_Health";
+            _object = "Powerups_New_2";
         }
     }
 }
