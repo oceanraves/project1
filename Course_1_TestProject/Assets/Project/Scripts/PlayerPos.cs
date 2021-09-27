@@ -9,9 +9,9 @@ public class PlayerPos : MonoBehaviour
     private LevelDisplay _lDisplay;
     void Start()
     {
-        //_gameMaster = GameObject.Find("GameMaster").GetComponent<GameMaster>();
+        _gameMaster = GameObject.Find("GameMaster").GetComponent<GameMaster>();
         _lDisplay = GameObject.Find("Level").GetComponent<LevelDisplay>();
-        //transform.position = _gameMaster.lastCheckPointPos;
+        transform.position = _gameMaster.lastCheckPointPos;
         level = 1;
         _lDisplay.SetLevel(level.ToString());
     }

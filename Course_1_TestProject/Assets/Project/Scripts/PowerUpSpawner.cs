@@ -51,7 +51,7 @@ public class PowerUpSpawner : MonoBehaviour
 
         if (typeOfObject == 0)
         {
-            _object = "Powerup_Bullets";
+            _object = "Powerups_Bullet";
         }
         if (typeOfObject == 1)
         {

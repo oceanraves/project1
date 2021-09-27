@@ -22,7 +22,7 @@ public class Enemy01Shooting : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (!isDead)
+        if (!isDead && gameObject.transform.position.x >= -16f && gameObject.transform.position.x <= 20f)
         {
             CheckFire();
         }

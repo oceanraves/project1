@@ -33,22 +33,18 @@ public class AudioHandler : MonoBehaviour
 
     void Start()
     {
-        Scene currentScene = SceneManager.GetActiveScene(); 
-        if (currentScene.name == "Level_1(Samuel)")
+        if (_isMuted)
         {
-            if (_isMuted)
-            {
-                AudioListener.volume = 0f;
-            }
+            AudioListener.volume = 0f;
+        }
+        Scene currentScene = SceneManager.GetActiveScene(); 
+        if (currentScene.buildIndex == 1) //"Level_1(Samuel)")
+        {
             Play("Music_Level_1");
         }
         
-        if (currentScene.name== "MainMenu")
+        if (currentScene.buildIndex == 0) //name== "MainMenu")
         {
-            if (_isMuted)
-            {
-                AudioListener.volume = 0f;
-            }
             Play("Music_Main_Menu");
         }
     }

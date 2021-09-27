@@ -22,7 +22,7 @@ public class Enemy00x2Shooting : MonoBehaviour
 
     void Update()
     {
-        if (!isDead)
+        if (!isDead && gameObject.transform.position.x >= -15f && gameObject.transform.position.x <= 20f)
         {
             CheckFire();
         }
