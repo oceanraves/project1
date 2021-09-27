@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 705507994}
-  m_IndirectSpecularColor: {r: 0.0010385179, g: 0.0008720452, b: 0.00066745805, a: 1}
+  m_IndirectSpecularColor: {r: 0.005321974, g: 0.0048802444, b: 0.0043528834, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -1218,6 +1218,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5d6e95affc9d89d4d9ab3cb94682bf53, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  levelRate: 2
   level: 0
 --- !u!1 &1334696731
 GameObject:
@@ -2018,6 +2019,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 9163466733570169862, guid: 365fb011315e9bc41bc85355cf899be5, type: 3}
+      propertyPath: cooldown
+      value: 0.15
+      objectReference: {fileID: 0}
     - target: {fileID: 9163466733578859601, guid: 365fb011315e9bc41bc85355cf899be5, type: 3}
       propertyPath: _isMuted
       value: 1

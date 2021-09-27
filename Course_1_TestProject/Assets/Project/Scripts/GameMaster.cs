@@ -33,6 +33,12 @@ public class GameMaster : MonoBehaviour
         } else {
             Destroy(gameObject);
         }
+        ResetAll();
+    }
+
+    public void ResetAll()
+    {
+        lastCheckPointPos = _startPos;
         lvl = 1;
         lives = 3;
         spawnRate = 3f;

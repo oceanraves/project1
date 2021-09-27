@@ -5,14 +5,12 @@ using UnityEngine.UI;
 
 public class ScoreDisplay : MonoBehaviour
 {
-
     int hitScore = 10;
     public int score;
     public Text scoreUI;
     public Text highScoreUI;
     private GameMaster _gameMaster;
 
-    // Start is called before the first frame update
     void Start()
     {
         _gameMaster = GameObject.Find("GameMaster").GetComponent<GameMaster>();
@@ -33,7 +31,6 @@ public class ScoreDisplay : MonoBehaviour
             PlayerPrefs.SetInt("HighScore", score);
             highScoreUI.text = "High Score: " + score.ToString();
         }
-
     }
 
     public void Reset()

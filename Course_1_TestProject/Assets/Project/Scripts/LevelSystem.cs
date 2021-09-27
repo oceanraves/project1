@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class LevelSystem : MonoBehaviour
 {
+    public int levelRate = 10;
     private GameMaster _gameMaster;
     public int level;
     private LevelDisplay _lDisplay;
@@ -36,11 +37,11 @@ public class LevelSystem : MonoBehaviour
 
     void Update()
     {
-        if (Time.time >= 10)
+        if (Time.time >= levelRate)
         {
             if (_lastTime != 0)
             {
-                if (Time.time >= (_lastTime + 10))
+                if (Time.time >= (_lastTime + levelRate))
                 {
                     NextLevel();
                 }

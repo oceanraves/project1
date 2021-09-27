@@ -86,7 +86,6 @@ public class HealthHandler : MonoBehaviour
     {
         _playerHealth += healthBonus;
         _healthBar.SetHealth(_playerHealth);
-
     }
 
     private void PlayerDeath()
@@ -116,7 +115,6 @@ public class HealthHandler : MonoBehaviour
 
         int _lvl = _levelSystem.level;
         _gameMaster.Level(_lvl);
-        float spawnRate = _levelSystem.level;
         _gameMaster.SpawnRate(_enemySpawner.spawnRate);
         _gameMaster.Lives(3);
         _gameMaster.lastCheckPointPos = _player.transform.position;

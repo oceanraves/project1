@@ -7,19 +7,29 @@ public class PauseMenu : MonoBehaviour
 {
     public GameObject pauseMenuUI;
     private InputHandler _inputHandler;
+    private GameMaster _gameMaster;
     private static bool _gameIsPaused;
     //public static bool gameIsPaused = false;
 
     private void Start()
     {
+        if (SceneManager.GetActiveScene().buildIndex == 1)
+        {
+            GetInputHandler();
+        }
+        _gameMaster = GameObject.Find("GameMaster").GetComponent<GameMaster>();
+    }
+
+    private void GetInputHandler()
+    {
         _inputHandler = GameObject.Find("InputHandler").GetComponent<InputHandler>();
         _gameIsPaused = _inputHandler._isPaused;
     }
+
     private void Update()
     {
         if (Input.GetKeyDown(KeyCode.Escape))
         {
-
             if (_gameIsPaused)
             {
                 Resume();
@@ -48,6 +58,7 @@ public class PauseMenu : MonoBehaviour
 
     public void LoadMenu()
     {
+        _gameMaster.ResetAll();
         SceneManager.LoadScene("MainMenu");
     }
 
