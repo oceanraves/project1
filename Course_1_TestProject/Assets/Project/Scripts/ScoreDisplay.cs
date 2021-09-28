@@ -20,7 +20,11 @@ public class ScoreDisplay : MonoBehaviour
         highScoreUI.text = "High Score: " + PlayerPrefs.GetInt("HighScore", 0).ToString();
     }
 
-    
+    private void Update()
+    {
+        highScoreUI.text = "High Score: " + PlayerPrefs.GetInt("HighScore", 0).ToString();
+    }
+
     public void AddScore()
     {
         score = score + hitScore;
