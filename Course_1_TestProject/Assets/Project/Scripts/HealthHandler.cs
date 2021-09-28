@@ -20,6 +20,8 @@ public class HealthHandler : MonoBehaviour
     private EnemySpawner _enemySpawner;
     private Health_PickUp _healthPickup;
     private ScoreDisplay _scoreDisplay;
+
+    public bool invincible;
     void Start()
     {
         _playerHealth = 10;
@@ -72,7 +74,7 @@ public class HealthHandler : MonoBehaviour
             _lDisplay.SetLives(_playerLives.ToString());
             _gameMaster.Lives(_playerLives);
 
-            if (_playerLives <= 0)
+            if (_playerLives <= 0 && !invincible)
             {
                 GameOver();
             } else

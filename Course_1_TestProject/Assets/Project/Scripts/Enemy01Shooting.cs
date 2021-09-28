@@ -24,7 +24,7 @@ public class Enemy01Shooting : MonoBehaviour
     {
         if (!isDead && gameObject.transform.position.x >= -16f && gameObject.transform.position.x <= 20f)
         {
-            CheckFire();
+            //CheckFire();
         }
     }
 

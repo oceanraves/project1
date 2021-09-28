@@ -13,7 +13,7 @@ public class PlayerShooting : MonoBehaviour
 
     public void Shoot()
     {
-        GameObject bullet =Instantiate(bulletPrefab, firePoint.position, firePoint.rotation);
+        GameObject bullet = Instantiate(bulletPrefab, firePoint.position, firePoint.rotation);
         GameObject bullet1= Instantiate(bulletPrefab, firePoint2.position, firePoint2.rotation);
         bullet.GetComponent<Bullet>().fromPlayer = true;
         bullet1.GetComponent<Bullet>().fromPlayer = true;

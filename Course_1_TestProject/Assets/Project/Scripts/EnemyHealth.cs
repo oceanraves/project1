@@ -35,6 +35,7 @@ public class EnemyHealth : MonoBehaviour
 
     }
 
+
     private void OnTriggerEnter(Collider bullet)
     {
         if (bullet.gameObject.tag == "Boundary")

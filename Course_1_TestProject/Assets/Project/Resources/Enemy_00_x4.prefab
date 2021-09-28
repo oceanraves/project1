@@ -27,7 +27,7 @@ Transform:
   m_GameObject: {fileID: 1819776201449538071}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: -0.0021, z: -0.0236}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 0.8, y: 0.8, z: 0.8}
   m_Children: []
   m_Father: {fileID: 3085544434921130684}
   m_RootOrder: 1
@@ -990,13 +990,22 @@ ParticleSystem:
           inWeight: 0.33333334
           outWeight: 0.33333334
         - serializedVersion: 3
-          time: 0.984326
-          value: 0
-          inSlope: -0.7837838
-          outSlope: -0.7837838
+          time: 0.59241015
+          value: 0.21579987
+          inSlope: -0.9985807
+          outSlope: -0.9985807
           tangentMode: 0
           weightedMode: 0
-          inWeight: 0.21019107
+          inWeight: 0.33333334
+          outWeight: 0.58791345
+        - serializedVersion: 3
+          time: 0.99033797
+          value: 0
+          inSlope: 0.13267706
+          outSlope: 0.13267706
+          tangentMode: 0
+          weightedMode: 0
+          inWeight: 0.40587565
           outWeight: 0.33333334
         m_PreInfinity: 2
         m_PostInfinity: 2
@@ -5149,7 +5158,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4459715640044651428}
-  - component: {fileID: 6016700742848376550}
   - component: {fileID: 4841347035549584584}
   m_Layer: 0
   m_Name: Enemy_00_x4
@@ -5167,26 +5175,12 @@ Transform:
   m_GameObject: {fileID: 7487520912188977857}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 0.8, y: 0.8, z: 0.8}
   m_Children:
   - {fileID: 3085544434921130684}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &6016700742848376550
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7487520912188977857}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7973557875066bf4387c63f4d725ed28, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  move: 1
-  _moveSpeed: 0
 --- !u!114 &4841347035549584584
 MonoBehaviour:
   m_ObjectHideFlags: 0
