@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class LevelSystem : MonoBehaviour
 {
+    public int levelRate = 10;
     private GameMaster _gameMaster;
     public int level;
     private LevelDisplay _lDisplay;
@@ -22,25 +23,19 @@ public class LevelSystem : MonoBehaviour
     private void NextLevel()
     {
         level += 1;
-        _enemySpawner.spawnRate -= 0.3f;
 
-        if (_enemySpawner.spawnRate <= 0f)
-        {
-            _enemySpawner.spawnRate = 0.1f;
-        }        
-
-        _gameMaster.SpawnRate(_enemySpawner.spawnRate);
+        _enemySpawner.ChangeSpawnRate();
         _lDisplay.SetLevel(level.ToString());
         _switch = true;
     }
 
     void Update()
     {
-        if (Time.time >= 10)
+        if (Time.time >= levelRate)
         {
             if (_lastTime != 0)
             {
-                if (Time.time >= (_lastTime + 10))
+                if (Time.time >= (_lastTime + levelRate))
                 {
                     NextLevel();
                 }

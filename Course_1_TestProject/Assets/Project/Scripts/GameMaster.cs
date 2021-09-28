@@ -33,6 +33,12 @@ public class GameMaster : MonoBehaviour
         } else {
             Destroy(gameObject);
         }
+        ResetAll();
+    }
+
+    public void ResetAll()
+    {
+        lastCheckPointPos = _startPos;
         lvl = 1;
         lives = 3;
         spawnRate = 3f;
@@ -44,10 +50,12 @@ public class GameMaster : MonoBehaviour
         lives = playerLives;
     }
 
+    /*
     public void SpawnRate(float getSpawnRate)
     {
         spawnRate = getSpawnRate;
     }
+    */
     public void Level(int level)
     {
         lvl = level;        

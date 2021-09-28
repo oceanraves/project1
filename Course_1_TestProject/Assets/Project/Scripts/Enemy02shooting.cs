@@ -20,10 +20,9 @@ public class Enemy02shooting : MonoBehaviour
         nextFire = Time.time;
     }
 
-    // Update is called once per frame
     void Update()
     {
-        if (!isDead)
+        if (!isDead && gameObject.transform.position.x >= -10f && gameObject.transform.position.x <= 20f)
         {
             CheckFire();
         }

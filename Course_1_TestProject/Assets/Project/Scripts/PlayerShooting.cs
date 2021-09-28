@@ -13,7 +13,7 @@ public class PlayerShooting : MonoBehaviour
 
     public void Shoot()
     {
-        GameObject bullet =Instantiate(bulletPrefab, firePoint.position, firePoint.rotation);
+        GameObject bullet = Instantiate(bulletPrefab, firePoint.position, firePoint.rotation);
         GameObject bullet1= Instantiate(bulletPrefab, firePoint2.position, firePoint2.rotation);
         bullet.GetComponent<Bullet>().fromPlayer = true;
         bullet1.GetComponent<Bullet>().fromPlayer = true;
@@ -35,9 +35,9 @@ public class PlayerShooting : MonoBehaviour
     IEnumerator Pickup()
     {
         bulletForce += forceBonus;
-        Debug.Log("Start");
+        //Debug.Log("Start");
         yield return new WaitForSeconds(duration);
-        Debug.Log("Stop");
+        //Debug.Log("Stop");
         bulletForce -= forceBonus;
     }
 }

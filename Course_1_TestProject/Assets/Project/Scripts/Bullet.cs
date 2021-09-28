@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Bullet : MonoBehaviour
 {
-    public int damage = 1;
+    public int damage = 2;
     public bool fromPlayer;
     private AudioHandler _audioHandler;
     private ExplosionSpawner _explosionSpawner;
