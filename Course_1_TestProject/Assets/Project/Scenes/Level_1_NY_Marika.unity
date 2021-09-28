@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 705507994}
-  m_IndirectSpecularColor: {r: 0.0024689806, g: 0.0023929076, b: 0.0022550803, a: 1}
+  m_IndirectSpecularColor: {r: 0.0028255207, g: 0.002558465, b: 0.0024266352, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -499,7 +499,15 @@ PrefabInstance:
     - target: {fileID: 6285823391358671973, guid: 59bdb115451674d448867d03d87f310f, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
-      objectReference: {fileID: 823620595}
+      objectReference: {fileID: 1733112247}
+    - target: {fileID: 6285823391358671973, guid: 59bdb115451674d448867d03d87f310f, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: LoadMenu
+      objectReference: {fileID: 0}
+    - target: {fileID: 6285823391358671973, guid: 59bdb115451674d448867d03d87f310f, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: InputHandler, Assembly-CSharp
+      objectReference: {fileID: 0}
     - target: {fileID: 6285823391358671974, guid: 59bdb115451674d448867d03d87f310f, type: 3}
       propertyPath: m_SizeDelta.x
       value: 215.2039
@@ -527,7 +535,15 @@ PrefabInstance:
     - target: {fileID: 6285823391565026230, guid: 59bdb115451674d448867d03d87f310f, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
-      objectReference: {fileID: 823620595}
+      objectReference: {fileID: 1733112247}
+    - target: {fileID: 6285823391565026230, guid: 59bdb115451674d448867d03d87f310f, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: QuitGame
+      objectReference: {fileID: 0}
+    - target: {fileID: 6285823391565026230, guid: 59bdb115451674d448867d03d87f310f, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: InputHandler, Assembly-CSharp
+      objectReference: {fileID: 0}
     - target: {fileID: 6285823391565026231, guid: 59bdb115451674d448867d03d87f310f, type: 3}
       propertyPath: m_SizeDelta.x
       value: 136.5834
@@ -559,7 +575,15 @@ PrefabInstance:
     - target: {fileID: 6285823392409077776, guid: 59bdb115451674d448867d03d87f310f, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
-      objectReference: {fileID: 823620595}
+      objectReference: {fileID: 1733112247}
+    - target: {fileID: 6285823392409077776, guid: 59bdb115451674d448867d03d87f310f, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: Resume
+      objectReference: {fileID: 0}
+    - target: {fileID: 6285823392409077776, guid: 59bdb115451674d448867d03d87f310f, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: InputHandler, Assembly-CSharp
+      objectReference: {fileID: 0}
     - target: {fileID: 6285823392409077777, guid: 59bdb115451674d448867d03d87f310f, type: 3}
       propertyPath: m_SizeDelta.x
       value: 190.0439
@@ -1423,8 +1447,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 823620595}
-        m_TargetAssemblyTypeName: PauseMenu, Assembly-CSharp
+      - m_Target: {fileID: 1733112247}
+        m_TargetAssemblyTypeName: InputHandler, Assembly-CSharp
         m_MethodName: Resume
         m_Mode: 1
         m_Arguments:
@@ -1661,7 +1685,6 @@ GameObject:
   - component: {fileID: 823620598}
   - component: {fileID: 823620597}
   - component: {fileID: 823620596}
-  - component: {fileID: 823620595}
   m_Layer: 5
   m_Name: Canvas
   m_TagString: Untagged
@@ -1669,19 +1692,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &823620595
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 823620594}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e3aaaea8fb8a27c4e8bb065ba29802ff, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  pauseMenuUI: {fileID: 773004682}
 --- !u!114 &823620596
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2827,6 +2837,17 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1641924499}
   m_CullTransparentMesh: 1
+--- !u!114 &1733112247 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 9163466733570169862, guid: 365fb011315e9bc41bc85355cf899be5, type: 3}
+  m_PrefabInstance: {fileID: 9163466734687596267}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b3e4473cf6484be4f973d11ea34d0917, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1783773043
 GameObject:
   m_ObjectHideFlags: 0
@@ -3885,6 +3906,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: -90
       objectReference: {fileID: 0}
+    - target: {fileID: 4565050008489599416, guid: 3f16feb6c99d4f24796fd2ec0a5e50cb, type: 3}
+      propertyPath: fireRate
+      value: 0.1
+      objectReference: {fileID: 0}
     - target: {fileID: 4565050008990662724, guid: 3f16feb6c99d4f24796fd2ec0a5e50cb, type: 3}
       propertyPath: m_IsActive
       value: 1
@@ -4019,6 +4044,14 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 9163466733570169862, guid: 365fb011315e9bc41bc85355cf899be5, type: 3}
+      propertyPath: cooldown
+      value: 0.3
+      objectReference: {fileID: 0}
+    - target: {fileID: 9163466733570169862, guid: 365fb011315e9bc41bc85355cf899be5, type: 3}
+      propertyPath: pauseMenuUI
+      value: 
+      objectReference: {fileID: 773004682}
     - target: {fileID: 9163466733578859601, guid: 365fb011315e9bc41bc85355cf899be5, type: 3}
       propertyPath: _isMuted
       value: 0

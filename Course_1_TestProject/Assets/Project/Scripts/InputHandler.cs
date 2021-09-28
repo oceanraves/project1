@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class InputHandler : MonoBehaviour
 {
@@ -12,6 +13,8 @@ public class InputHandler : MonoBehaviour
     private PlayerShooting _playerShooting;
     Vector3 moveInput;
     private InputHandler _inputHandler;
+    public GameObject pauseMenuUI;
+
 
 
     void Start()
@@ -49,13 +52,40 @@ public class InputHandler : MonoBehaviour
                 Time.timeScale = 1f;
                 _isPaused = false;
                 _audioHandler.PauseAudio();
+                Resume();
                 return;
             }
             else
             Time.timeScale = 0f;
             _isPaused = true;
-
+            Pause();
             _audioHandler.PauseAudio();
         }
+
+    }
+
+    public void Resume()
+    {
+        pauseMenuUI.SetActive(false);
+        _isPaused = false;
+        Time.timeScale = 1f;
+    }
+
+    public void Pause()
+    {
+        pauseMenuUI.SetActive(true);
+        _isPaused = true;
+        Time.timeScale = 0f;
+    }
+
+    public void LoadMenu()
+    {
+        SceneManager.LoadScene("MainMenu");
+    }
+
+    public void QuitGame()
+    {
+        Application.Quit();
+        Debug.Log("Quitting");
     }
 }
