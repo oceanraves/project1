@@ -16,6 +16,7 @@ public class PlayerMovement : MonoBehaviour
 
     private InputHandler _inputHandler;
     private static bool _gameIsPaused;
+    private float current_rotation_;
 
 
     void Start()
@@ -24,6 +25,7 @@ public class PlayerMovement : MonoBehaviour
         _inputHandler = GameObject.Find("InputHandler").GetComponent<InputHandler>();
         _gameIsPaused = _inputHandler._isPaused;
         _camera = Camera.main;
+        current_rotation_ = transform.rotation.eulerAngles.z;
     }
 
     void Update()
@@ -52,18 +54,19 @@ public class PlayerMovement : MonoBehaviour
 
     private void Look()
     {
-       
-        Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
-        Plane plane = new Plane(Vector3.back, Vector3.zero);
 
-        if (plane.Raycast(ray, out float distance))
+        Vector2 mousePosition = Input.mousePosition;
+        Vector2 playerPosition = _camera.WorldToScreenPoint(transform.position);
+
+        Vector2 dir = mousePosition - playerPosition;
+
+        float angle = Mathf.Atan2(dir.y, dir.x) * Mathf.Rad2Deg;
+
+        if (angle < 0.0f)
         {
-            Vector3 target = ray.GetPoint(distance);
-            Vector3 direction = target - transform.position;
-            float rotation = Mathf.Atan2(direction.x, direction.y) * Mathf.Rad2Deg + 180f;
-            transform.rotation = Quaternion.Euler(180f, 0f, rotation);
-
-            
+            angle += 360;
         }
+
+        transform.rotation = Quaternion.Euler(transform.rotation.eulerAngles.x, transform.rotation.eulerAngles.y, -(angle - current_rotation_));
     }
 }

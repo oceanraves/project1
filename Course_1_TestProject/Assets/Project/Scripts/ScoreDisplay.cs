@@ -16,24 +16,24 @@ public class ScoreDisplay : MonoBehaviour
         _gameMaster = GameObject.Find("GameMaster").GetComponent<GameMaster>();
         score = _gameMaster.score;
 
-        scoreUI.text = "Score: " + score.ToString();
-        highScoreUI.text = "High Score: " + PlayerPrefs.GetInt("HighScore", 0).ToString();
+        scoreUI.text = score.ToString();
+        highScoreUI.text = PlayerPrefs.GetInt("HighScore", 0).ToString();
     }
 
     private void Update()
     {
-        highScoreUI.text = "High Score: " + PlayerPrefs.GetInt("HighScore", 0).ToString();
+        highScoreUI.text = PlayerPrefs.GetInt("HighScore", 0).ToString();
     }
 
     public void AddScore()
     {
         score = score + hitScore;
-        scoreUI.text = "Score: " + score.ToString();
+        scoreUI.text = score.ToString();
 
         if (score > PlayerPrefs.GetInt ("HighScore", 0))
         {
             PlayerPrefs.SetInt("HighScore", score);
-            highScoreUI.text = "High Score: " + score.ToString();
+            highScoreUI.text = score.ToString();
         }
     }
 

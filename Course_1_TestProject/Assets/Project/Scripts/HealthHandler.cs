@@ -55,18 +55,18 @@ public class HealthHandler : MonoBehaviour
         _ogLife = "Life";
 
         _life1 = Instantiate(Resources.Load(_ogLife, typeof(GameObject))) as GameObject;
-        _life1.transform.position = new Vector3(-3.2f, 40.5f, 17f);
+        _life1.transform.position = new Vector3(-3.2f, 40f, 17f);
         _life1.gameObject.AddComponent<ObjectRotater>();
         _life1.gameObject.GetComponent<ObjectRotater>().SetRotation(rotation);
         _life1.gameObject.AddComponent<ObjectRotater>().rotationSpeed = 5;
 
         _life2 = Instantiate(Resources.Load(_ogLife, typeof(GameObject))) as GameObject;
-        _life2.transform.position = new Vector3(0f, 40.5f, 17f);
+        _life2.transform.position = new Vector3(0f, 40f, 17f);
         _life2.gameObject.GetComponent<ObjectRotater>().SetRotation(rotation);
         _life2.gameObject.AddComponent<ObjectRotater>().rotationSpeed = 5;
 
         _life3 = Instantiate(Resources.Load(_ogLife, typeof(GameObject))) as GameObject;
-        _life3.transform.position = new Vector3(3.2f, 40.5f, 17f);
+        _life3.transform.position = new Vector3(3.2f, 40f, 17f);
         _life3.gameObject.GetComponent<ObjectRotater>().SetRotation(rotation);
         _life3.gameObject.AddComponent<ObjectRotater>().rotationSpeed = 5;
     }
