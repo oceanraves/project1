@@ -13,6 +13,6 @@ public class TurretRotation : MonoBehaviour
 
     void Update()
     {
-        transform.LookAt(_player);
+        transform.LookAt(_player.transform);
     }
 }

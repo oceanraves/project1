@@ -10,6 +10,9 @@ public class Health_PickUp : MonoBehaviour
     private void Awake()
     {
         _healthHandler = FindObjectOfType<HealthHandler>();
+        Rigidbody _rb = gameObject.GetComponent<Rigidbody>();
+        Vector3 force = new Vector3(0, -0.5f, 0f);
+        _rb.AddForce(force, ForceMode.Impulse);
     }
 
     void OnTriggerEnter(Collider collider)

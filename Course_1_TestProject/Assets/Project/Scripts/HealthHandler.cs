@@ -69,7 +69,6 @@ public class HealthHandler : MonoBehaviour
         _life3.transform.position = new Vector3(2.75f, 40.5f, 17f);
         _life3.gameObject.GetComponent<ObjectRotater>().SetRotation(rotation);
         _life3.gameObject.AddComponent<ObjectRotater>().rotationSpeed = 5;
-
     }
 
     public void Update()
@@ -180,8 +179,6 @@ public class HealthHandler : MonoBehaviour
         _gameMaster.Lives(3);
         _gameMaster.lastCheckPointPos = _player.transform.position;
         _gameMaster.Score(_scoreDisplay.score);
-
-
         _sceneHandler.LoadLevel1();
     }
 }

@@ -8,7 +8,7 @@ public class ColorChange : MonoBehaviour
 
     public void StoreColor(Material[] mats, Color color, int material)
     {
-        _originalMat = mats[1].color;
+        _originalMat = mats[material].color;
         mats[material].color = color;
     }
 

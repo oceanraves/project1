@@ -4,15 +4,27 @@ using UnityEngine;
 
 public class TurretBehaviour : MonoBehaviour
 {
+    private Renderer _rend;
+    private Material[] _materials;
+    private ColorChange _colorChange;
+    private bool _isRed = false;
     int health = 12;
     private AudioHandler _audioHandler;
     private EnemySpawner _enemySpawner;
-    private int _whichTurret;
+    private float turretPos;
+    private Animator _animator;
+
 
     void Start()
     {
         _audioHandler = GameObject.Find("AudioHandler").GetComponent<AudioHandler>();
         _enemySpawner = GameObject.Find("EnemySpawner").GetComponent<EnemySpawner>();
+        _animator = gameObject.GetComponent<Animator>();
+        _colorChange = GameObject.Find("ColorChange").GetComponent<ColorChange>();
+        _rend = gameObject.GetComponent<Renderer>();
+        _materials = _rend.materials;
+
+
     }
 
     private void OnTriggerEnter(Collider bullet)
@@ -23,7 +35,13 @@ public class TurretBehaviour : MonoBehaviour
             if (bullet.GetComponent<Bullet>() != null)
             {
                 health -= bullet.GetComponent<Bullet>().damage;
+
+                if (!_isRed)
+                {
+                    ChangeColor();
+                }
             }
+            Destroy(bullet);
         }
         if (health <= 0)
         {
@@ -39,29 +57,21 @@ public class TurretBehaviour : MonoBehaviour
             FindObjectOfType<ScoreDisplay>().AddScore();
             //_animator = gameObject.GetComponent<Animator>();
 
-            CheckWhichTurret();
-            _enemySpawner.TurretSpawnPoint(_whichTurret);
+            turretPos = gameObject.transform.position.x;
+            _enemySpawner.SpawnTurret(turretPos);
             Destroy(gameObject);
         }
     }
 
-    private void CheckWhichTurret()
+    private void ChangeColor()
     {
-        if(gameObject.transform.position.x == -15.69f)
-        {
-            _whichTurret = 0;
-        }
-        if (gameObject.transform.position.x == -6.11f)
-        {
-            _whichTurret = 1;
-        }
-        if (gameObject.transform.position.x == 6.17f)
-        {
-            _whichTurret = 2;
-        }
-        if (gameObject.transform.position.x == 16.02f)
-        {
-            _whichTurret = 3;
-        }
+        _isRed = true;
+        _colorChange.StoreColor(_materials, new Color(224, 137, 9, 255), 0);
+        Invoke("ChangeBack", 0.03f);
+    }
+    private void ChangeBack()
+    {
+        _colorChange.ColorChangeBack(_materials, 0);
+        _isRed = false;
     }
 }
