@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Audio;
 using UnityEngine.SceneManagement;
 
 public class MainMenu : MonoBehaviour
@@ -8,6 +9,7 @@ public class MainMenu : MonoBehaviour
     private InputHandler _inputHandler;
     private static bool _gameIsPaused;
     private GameMaster _gameMaster;
+    public AudioMixer _audioMixer;
 
 
     private void Start()
@@ -34,5 +36,17 @@ public class MainMenu : MonoBehaviour
     {
         Debug.Log("Quit");
         Application.Quit();
+    }
+
+    public void SetSfxVolume(float sfxVolume)
+    {
+        
+        _audioMixer.SetFloat("sfxVolume", Mathf.Log10(sfxVolume) * 20);
+    }
+
+    public void SetMusicVolume(float musicVolume)
+    {
+        
+        _audioMixer.SetFloat("musicVolume", Mathf.Log10(musicVolume) * 20);
     }
 }
