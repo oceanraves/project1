@@ -11,4 +11,10 @@ public class ObjectRotater : MonoBehaviour
     {
         gameObject.transform.Rotate(objectRotation * rotationSpeed * Time.deltaTime); 
     }
+
+    public void SetRotation(Vector3 rotation)
+    {
+        objectRotation = rotation;
+    }
+
 }

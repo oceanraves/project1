@@ -22,22 +22,54 @@ public class HealthHandler : MonoBehaviour
     private ScoreDisplay _scoreDisplay;
 
     public bool invincible;
+
+
+
+    private GameObject _life1;
+    private GameObject _life2;
+    private GameObject _life3;
+    private string _ogLife;
+
     void Start()
     {
         _playerHealth = 10;
         _maxHealth = 10; 
         _bulletDamage = 1;
-
+        DisplayLives();
 
         _gameMaster = GameObject.Find("GameMaster").GetComponent<GameMaster>();
         _sceneHandler = GameObject.Find("SceneHandler").GetComponent<SceneHandler>();
         _player = GameObject.Find("TEST_Player_Spaceship Variant");
         _pMovement = _player.GetComponent<PlayerMovement>();
         _healthBar = GameObject.Find("HealthBar").GetComponent<HealthBar>();
-        _lDisplay = GameObject.Find("Lives").GetComponent<LivesDisplay>();
+        //_lDisplay = GameObject.Find("Lives").GetComponent<LivesDisplay>();
         _levelSystem = GameObject.Find("LevelSystem").GetComponent<LevelSystem>();
         _enemySpawner = GameObject.Find("EnemySpawner").GetComponent<EnemySpawner>();
         _scoreDisplay = GameObject.Find("ScoreDisplay").GetComponent<ScoreDisplay>();
+    }
+
+
+    public void DisplayLives()
+    {
+        Vector3 rotation = new Vector3(2, 0, 0);
+        _ogLife = "Life";
+
+        _life1 = Instantiate(Resources.Load(_ogLife, typeof(GameObject))) as GameObject;
+        _life1.transform.position = new Vector3(-3.2f, 40.5f, 17f);
+        _life1.gameObject.AddComponent<ObjectRotater>();
+        _life1.gameObject.GetComponent<ObjectRotater>().SetRotation(rotation);
+        _life1.gameObject.AddComponent<ObjectRotater>().rotationSpeed = 5;
+
+        _life2 = Instantiate(Resources.Load(_ogLife, typeof(GameObject))) as GameObject;
+        _life2.transform.position = new Vector3(-0.4f, 40.5f, 17f);
+        _life2.gameObject.GetComponent<ObjectRotater>().SetRotation(rotation);
+        _life2.gameObject.AddComponent<ObjectRotater>().rotationSpeed = 5;
+
+        _life3 = Instantiate(Resources.Load(_ogLife, typeof(GameObject))) as GameObject;
+        _life3.transform.position = new Vector3(2.75f, 40.5f, 17f);
+        _life3.gameObject.GetComponent<ObjectRotater>().SetRotation(rotation);
+        _life3.gameObject.AddComponent<ObjectRotater>().rotationSpeed = 5;
+
     }
 
     public void Update()
@@ -71,7 +103,34 @@ public class HealthHandler : MonoBehaviour
         if (_playerHealth <= 0)
         {
             _playerLives -= 1;
-            _lDisplay.SetLives(_playerLives.ToString());
+
+            if (_playerLives == 3)
+            {
+                _life1.SetActive(true);
+                _life2.SetActive(true);
+                _life3.SetActive(true);
+            }
+            if (_playerLives == 2)
+            {
+                _life1.SetActive(true);
+                _life2.SetActive(true);
+                _life3.SetActive(false);
+            }
+            if (_playerLives == 1)
+            {
+                _life1.SetActive(true);
+                _life2.SetActive(false);
+                _life3.SetActive(false);
+            }
+            if (_playerLives <= 0)
+            {
+                _life1.SetActive(false);
+                _life2.SetActive(false);
+                _life3.SetActive(false);
+            }
+
+
+            //_lDisplay.SetLives(_playerLives.ToString());
             _gameMaster.Lives(_playerLives);
 
             if (_playerLives <= 0 && !invincible)
@@ -113,7 +172,7 @@ public class HealthHandler : MonoBehaviour
     }
     private void GameOver()
     {
-        _lDisplay.SetLives(_playerLives.ToString());
+        //_lDisplay.SetLives(_playerLives.ToString());
 
         int _lvl = _levelSystem.level;
         _gameMaster.Level(_lvl);
