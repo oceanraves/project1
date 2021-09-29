@@ -4,17 +4,24 @@ using System.Collections.Generic;
 using UnityEngine.Audio;
 using UnityEngine.SceneManagement;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class AudioHandler : MonoBehaviour
 {
     //public List<AudioSource> sounds;
-     
+
     [SerializeField]
     private bool _isMuted;
 
     private bool _isPaused;
 
+    [SerializeField]
+    private AudioMixerGroup musicMixerGroup;
+    [SerializeField]
+    private AudioMixerGroup sfxMixerGroup;
 
+    public Slider musicSlider;
+    public Slider sfxSlider;
     public Sound[] sounds;
 
     private void Awake()
@@ -27,6 +34,16 @@ public class AudioHandler : MonoBehaviour
             s.source.volume = s.volume;
             s.source.pitch = s.pitch;
             s.source.loop = s.loop;
+
+            switch (s.audioType)
+            {
+                case Sound.AudioTypes.soundEffect:
+                    s.source.outputAudioMixerGroup = sfxMixerGroup;
+                    break;
+                case Sound.AudioTypes.music:
+                    s.source.outputAudioMixerGroup = musicMixerGroup;
+                    break;
+            }
         }
     }
 
