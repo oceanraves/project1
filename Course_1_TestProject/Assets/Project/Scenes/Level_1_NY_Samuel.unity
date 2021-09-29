@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 705507994}
-  m_IndirectSpecularColor: {r: 0.0037631192, g: 0.0037487375, b: 0.003977384, a: 1}
+  m_IndirectSpecularColor: {r: 0.002128035, g: 0.0020715704, b: 0.0020981845, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -3159,8 +3159,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 3, y: 53.46065, z: 50}
-  m_Center: {x: -37.24, y: 0.89967537, z: 0}
+  m_Size: {x: 10.765112, y: 53.46065, z: 50}
+  m_Center: {x: -33.35745, y: 0.89967537, z: 0}
 --- !u!65 &1442814081
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -3198,8 +3198,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 72.6, y: 32.432503, z: 2.369999}
-  m_Center: {x: 0, y: 11.41375, z: -25.03}
+  m_Size: {x: 71.2814, y: 32.432503, z: 2.369999}
+  m_Center: {x: 0.65930367, y: 11.41375, z: -25.03}
 --- !u!65 &1442814084
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -3211,8 +3211,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 72.6, y: 31.119396, z: 2.369999}
-  m_Center: {x: 0, y: 12.070303, z: 25.07}
+  m_Size: {x: 70.6221, y: 31.119396, z: 2.369999}
+  m_Center: {x: 0.98895454, y: 12.070303, z: 25.07}
 --- !u!1001 &1479385636
 PrefabInstance:
   m_ObjectHideFlags: 0
