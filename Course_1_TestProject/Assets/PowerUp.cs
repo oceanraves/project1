@@ -18,7 +18,11 @@ public class PowerUp : MonoBehaviour
             _audioHandler.Play("BulletPickup");
 
             Destroy(gameObject);
-        }        
-    }
+        }
 
+        if (collider.gameObject.tag == "Boundary")
+        {
+            Destroy(gameObject.transform.parent.gameObject);
+        }
+    }
 }

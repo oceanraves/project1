@@ -25,9 +25,9 @@ public class Health_PickUp : MonoBehaviour
             }
         }
 
-
-
-
-
+        if (collider.gameObject.tag == "Boundary")
+        {
+            Destroy(gameObject.transform.parent.gameObject);
+        }
     }
 }

@@ -162,20 +162,20 @@ public class EnemySpawner : MonoBehaviour
             _newY = Random.Range(42.5f, 60f);
         }  
         
-        _spawnPoint = new Vector3(26, _newY, 17);
+        _spawnPoint = new Vector3(28, _newY, 17);
         _lastSpawnPoint = _spawnPoint;
     }
     private void SineWave()
     {
         angle += inc;
         float ypos = (Mathf.Sin(angle) + 1) / 2 * 13.5f + 48.5f;
-        _spawnPoint = new Vector3(26, ypos, 17);
+        _spawnPoint = new Vector3(28, ypos, 17);
     }
     private void CoSineWave()
     {
         angle += inc;
         float ypos = (Mathf.Cos(angle) + 1) / -4f * 13.5f + 48.5f;
-        _spawnPoint = new Vector3(26, ypos, 17);
+        _spawnPoint = new Vector3(28, ypos, 17);
     }
     private void SawTooth()
     {

@@ -14,6 +14,7 @@ public class InputHandler : MonoBehaviour
     Vector3 moveInput;
     private InputHandler _inputHandler;
     public GameObject pauseMenuUI;
+    private GameMaster _gameMaster;
 
 
 
@@ -23,6 +24,8 @@ public class InputHandler : MonoBehaviour
         _playerMovement = GameObject.Find("TEST_Player_Spaceship Variant").GetComponent<PlayerMovement>();
         _playerShooting = GameObject.Find("TEST_Player_Spaceship Variant").GetComponent<PlayerShooting>();
         _inputHandler = GameObject.Find("InputHandler").GetComponent<InputHandler>();
+        _gameMaster = GameObject.Find("GameMaster").GetComponent<GameMaster>();
+
     }
     void Update()
     {
@@ -80,6 +83,7 @@ public class InputHandler : MonoBehaviour
 
     public void LoadMenu()
     {
+        _gameMaster.ResetAll();
         SceneManager.LoadScene("MainMenu");
     }
 
