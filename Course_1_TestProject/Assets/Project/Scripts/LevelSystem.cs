@@ -14,18 +14,18 @@ public class LevelSystem : MonoBehaviour
     void Start()
     {
         _gameMaster = GameObject.Find("GameMaster").GetComponent<GameMaster>();
-        _lDisplay = GameObject.Find("Level").GetComponent<LevelDisplay>();
+        //_lDisplay = GameObject.Find("Level").GetComponent<LevelDisplay>();
         _enemySpawner = GameObject.Find("EnemySpawner").GetComponent<EnemySpawner>();
 
         level = _gameMaster.lvl;
-        _lDisplay.SetLevel(level.ToString());
+        //_lDisplay.SetLevel(level.ToString());
     }
     private void NextLevel()
     {
         level += 1;
 
-        _enemySpawner.ChangeSpawnRate();
-        _lDisplay.SetLevel(level.ToString());
+        //_enemySpawner.ChangeSpawnRate();
+        //_lDisplay.SetLevel(level.ToString());
         _switch = true;
     }
 
