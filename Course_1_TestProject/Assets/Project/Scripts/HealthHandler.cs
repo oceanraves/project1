@@ -174,11 +174,11 @@ public class HealthHandler : MonoBehaviour
         //_lDisplay.SetLives(_playerLives.ToString());
 
         int _lvl = _levelSystem.level;
-        _gameMaster.Level(_lvl);
-        _gameMaster.spawnRate = _enemySpawner.spawnRate;
-        _gameMaster.Lives(3);
-        _gameMaster.lastCheckPointPos = _player.transform.position;
-        _gameMaster.Score(_scoreDisplay.score);
+        //_gameMaster.Level(_lvl);
+        //_gameMaster.spawnRate = _enemySpawner.spawnRate;
+        //_gameMaster.Lives(3);
+        //_gameMaster.lastCheckPointPos = _player.transform.position;
+        //_gameMaster.Score(_scoreDisplay.score);
         _sceneHandler.LoadLevel1();
     }
 }

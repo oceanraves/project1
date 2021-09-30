@@ -27,7 +27,7 @@ public class EnemySpawner : MonoBehaviour
     private bool _sineWave;
     public bool wallMode;
     private string _wall;
-    private float _timer = 3f;
+    private float _timer = 600f;
     float timeStamp;
     bool conidionsSet = false;
     private bool _spawnSine = false;
@@ -45,20 +45,21 @@ public class EnemySpawner : MonoBehaviour
     {
         if (_timer <= 600f && _timer > 400f)
         {
-            wallMode = true;
+            wallMode = false;
             _spawnSine = false;
+
             _timer -= 0.1f;
         }
         if (_timer <= 400f && _timer > 200f)
         {
             wallMode = false;
-            _spawnSine = false;
+            _spawnSine = true;
             _timer -= 0.1f;
         }
         if (_timer < 200f && _timer > 0f)
         {
-            wallMode = false;
-            _spawnSine = true;
+            wallMode = true;
+            _spawnSine = false;
             _timer -= 0.1f;
         }
         if (_timer <= 0f)
@@ -68,21 +69,6 @@ public class EnemySpawner : MonoBehaviour
         //spawnRate = 0.8f;
         if (spawn)
         {
-            if (wallMode)
-            {
-                if (!conidionsSet)
-                {
-                    //WaveCounter("Wall");
-                    spawnRate = 1.5f;
-                    timeStamp = Time.time;
-                    conidionsSet = true;
-                }
-                if (Time.time > timeStamp + spawnRate)
-                {
-                    SpawnWall();
-                    conidionsSet = false;
-                }
-            }
             if (!wallMode)
             {
                 if (!conidionsSet)
@@ -92,15 +78,14 @@ public class EnemySpawner : MonoBehaviour
                     timeStamp = Time.time;
                     state = 1;
                     conidionsSet = true;
-
                 }
                 if (Time.time > timeStamp + spawnRate)
                 {
+
                     SpawnRandom();
                     conidionsSet = false;
                 }
             }
-
             if (!wallMode && _spawnSine == true)
             {
                 if (!conidionsSet)
@@ -110,11 +95,26 @@ public class EnemySpawner : MonoBehaviour
                     timeStamp = Time.time;
                     state = 2;
                     conidionsSet = true;
-
                 }
                 if (Time.time > timeStamp + spawnRate)
                 {
                     SpawnRandom();
+                    conidionsSet = false;
+                }
+            }
+
+            if (wallMode)
+            {
+                if (!conidionsSet)
+                {
+                    //WaveCounter("Wall");
+                    spawnRate = 4f;
+                    timeStamp = Time.time;
+                    conidionsSet = true;
+                }
+                if (Time.time > timeStamp + spawnRate)
+                {
+                    SpawnWall();
                     conidionsSet = false;
                 }
             }
@@ -178,6 +178,8 @@ public class EnemySpawner : MonoBehaviour
 
         GameObject newWall = Instantiate(Resources.Load(_wall, typeof(GameObject))) as GameObject;
         newWall.transform.position = new Vector3(27f, 45f, 17f);
+        newWall.AddComponent<EnemyMovement>();
+        newWall.GetComponent<EnemyMovement>().SetMoveSpeed(6f);
 
     }
     private void SpawnRandom()
@@ -202,7 +204,7 @@ public class EnemySpawner : MonoBehaviour
         _clone = Instantiate(Resources.Load(_object, typeof(GameObject))) as GameObject;
         _clone.transform.position = _spawnPoint;
         _clone.AddComponent<EnemyMovement>();
-        _clone.GetComponent<EnemyMovement>().SetMoveSpeed(8f);
+        _clone.GetComponent<EnemyMovement>().SetMoveSpeed(9f);
 
         if (state == 2)
         {
@@ -211,7 +213,7 @@ public class EnemySpawner : MonoBehaviour
             _clone2 = Instantiate(Resources.Load(_object, typeof(GameObject))) as GameObject;
             _clone2.transform.position = _spawnPoint;
             _clone2.AddComponent<EnemyMovement>();
-            _clone2.GetComponent<EnemyMovement>().SetMoveSpeed(8f);
+            _clone2.GetComponent<EnemyMovement>().SetMoveSpeed(9f);
         }
     }
     private void GetSpawnPoint()
