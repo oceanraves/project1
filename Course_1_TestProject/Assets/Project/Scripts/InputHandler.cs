@@ -6,11 +6,8 @@ using UnityEngine.SceneManagement;
 public class InputHandler : MonoBehaviour
 {
     public bool _isPaused = false;
-    float timer;
-    public float cooldown = 2f;
     private AudioHandler _audioHandler;
     private PlayerMovement _playerMovement;
-    private PlayerShooting _playerShooting;
     Vector3 moveInput;
     private InputHandler _inputHandler;
     public GameObject pauseMenuUI;
@@ -23,14 +20,12 @@ public class InputHandler : MonoBehaviour
     {
         _audioHandler = GameObject.Find("AudioHandler").GetComponent<AudioHandler>();
         _playerMovement = GameObject.Find("TEST_Player_Spaceship Variant").GetComponent<PlayerMovement>();
-        _playerShooting = GameObject.Find("TEST_Player_Spaceship Variant").GetComponent<PlayerShooting>();
         _inputHandler = GameObject.Find("InputHandler").GetComponent<InputHandler>();
         _gameMaster = GameObject.Find("GameMaster").GetComponent<GameMaster>();
 
     }
     void Update()
     {
-        timer += Time.deltaTime;
 
         //GET PLAYER MOVEMENT INPUT
         moveInput = new Vector3(Input.GetAxis("Horizontal"), Input.GetAxis("Vertical"), 0f);
@@ -40,13 +35,6 @@ public class InputHandler : MonoBehaviour
             _playerMovement.Move(moveInput);
         }
 
-        //GET PLAYER SHOOTING INPUT
-        if (_playerMovement.playerEnabled == true && Input.GetButton("Fire1") && !_inputHandler._isPaused && timer > cooldown)
-        {
-            _playerShooting.Shoot();
-            _audioHandler.Play("Lazer_1");
-            timer = 0.0f;
-        }
 
         if (Input.GetKeyDown(KeyCode.Escape))
         {
