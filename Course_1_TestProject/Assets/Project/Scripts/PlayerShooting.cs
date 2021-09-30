@@ -8,7 +8,7 @@ public class PlayerShooting : MonoBehaviour
     public Transform firePoint2;
     public GameObject bulletPrefab;
     public float bulletForce = 50;
-    public float forceBonus = 50f;
+    public float forceBonus = 100f;
     public float duration = 4f;
 
     public void Shoot()

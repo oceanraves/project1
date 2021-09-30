@@ -14,6 +14,7 @@ public class InputHandler : MonoBehaviour
     Vector3 moveInput;
     private InputHandler _inputHandler;
     public GameObject pauseMenuUI;
+    public GameObject settingsMenuUI;
     private GameMaster _gameMaster;
 
 
@@ -56,6 +57,7 @@ public class InputHandler : MonoBehaviour
                 _isPaused = false;
                 _audioHandler.PauseAudio();
                 Resume();
+                settingsMenuUI.SetActive(false);
                 return;
             }
             else
