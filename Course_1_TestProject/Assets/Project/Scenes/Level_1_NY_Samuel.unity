@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 705507994}
-  m_IndirectSpecularColor: {r: 0.002128035, g: 0.0020715704, b: 0.0020981845, a: 1}
+  m_IndirectSpecularColor: {r: 0.0032657993, g: 0.0032131826, b: 0.003228446, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -1633,7 +1633,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 1.0504761, y: -200.12}
+  m_AnchoredPosition: {x: 1.0505371, y: -200.12}
   m_SizeDelta: {x: -377.28, y: -392.05}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &897887737
@@ -4056,6 +4056,24 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1650491113}
   m_Mesh: {fileID: -3735641989982708762, guid: 96a6afa2fb17093468624ed2ea714802, type: 3}
+--- !u!1 &1657113442 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 331872268691418455, guid: 3f16feb6c99d4f24796fd2ec0a5e50cb, type: 3}
+  m_PrefabInstance: {fileID: 4565050008945082586}
+  m_PrefabAsset: {fileID: 0}
+--- !u!65 &1657113443
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1657113442}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.05373173, y: 0.028123755, z: 0.093215264}
+  m_Center: {x: -6.5744117e-17, y: -0.012597868, z: 0.044349257}
 --- !u!1 &1771868738
 GameObject:
   m_ObjectHideFlags: 0
